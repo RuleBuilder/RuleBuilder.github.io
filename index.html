@@ -1273,6 +1273,30 @@
                     </div>
                 </div>
 
+
+                <!-- Preset: Button AC Control -->
+                <div onclick="selectPreset('button-ac-control')" data-device-category="button"
+                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-sky-400/30 dark:hover:border-sky-500/20 group">
+                    <div
+                        class="w-14 h-14 bg-sky-50 dark:bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v18m-9-9h18M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 tracking-tight" data-i18n="preset.buttonAc.title">IoT 버튼으로 에어컨 온도 제어</h3>
+                    <p class="text-sm md:text-base text-gray-500 dark:text-zinc-400 leading-relaxed"
+                        data-i18n="preset.buttonAc.desc">버튼을 눌러서 에어컨 온도를 1°C 단위로 단계적으로 제어합니다.</p>
+                    <div
+                        class="mt-6 flex items-center text-sky-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+                        <span data-i18n="preset.select">선택하기</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </div>
+                </div>
+
                 <!-- Preset: Dimmer Control -->
                 <div onclick="selectPreset('dimmer-control')" data-device-category="knob"
                     class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-blue-400/30 dark:hover:border-blue-500/20 group">
@@ -2225,6 +2249,57 @@
             </div>
         </section>
 
+
+        <!-- ===== STEP 4-BUTTON-AC: AC BUTTON STEP SETTING ===== -->
+        <section id="step4_button_ac" class="step-content">
+            <div class="glass-card p-8 md:p-12 space-y-10">
+                <!-- Fixed 1°C step -->
+                <div class="space-y-6 disabled-setting" aria-disabled="true">
+                    <h4 class="text-lg font-bold tracking-tight" data-i18n="step4.buttonAc.stepAmountTitle">에어컨 온도 제어 단위</h4>
+                    <div class="relative w-full">
+                        <input type="number" id="input_button_ac_step" value="1" disabled class="w-full px-5 py-4 bg-gray-100 dark:bg-white/5 rounded-2xl text-xl font-bold outline-none pr-16 cursor-not-allowed">
+                        <span class="absolute right-5 top-1/2 -translate-y-1/2 font-bold text-gray-400">step</span>
+                    </div>
+                    <p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed" data-i18n="step4.buttonAc.stepNote">1°C 단위로 고정되어 있습니다. 버튼 1회 클릭마다 온도가 1°C 변경됩니다.</p>
+                </div>
+
+                <!-- AC temperature range visual -->
+                <div class="space-y-4 pt-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black text-gray-400 uppercase tracking-widest" data-i18n="step4.buttonAc.acStepPreviewLabel">온도 범위 미리보기</span>
+                        <span id="button_ac_step_preview_text" class="text-sm font-bold text-sky-500">18°C → 30°C</span>
+                    </div>
+                    <div id="button_ac_step_bar" class="brightness-step-bar"></div>
+                    <p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed" data-i18n="step4.buttonAc.acStepPreviewNote">1°C 단위로 온도가 단계적으로 조절됩니다.</p>
+                </div>
+
+                <!-- Loop mode toggle -->
+                <div class="space-y-6 pt-6 border-t border-gray-100 dark:border-white/5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="text-lg font-bold tracking-tight" data-i18n="step4.buttonAc.loopModeTitle">루프 모드</h4>
+                            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1" data-i18n="step4.buttonAc.loopModeDesc">최고 온도에 도달했을 때 한 번 더 누르면 최저 온도로 돌아갑니다.</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer ml-4">
+                            <input type="checkbox" id="btn_ac_loop_toggle" class="sr-only" onchange="toggleButtonAcLoop()">
+                            <span class="switch-track"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Caution -->
+                <div class="p-6 bg-amber-50 dark:bg-amber-500/5 rounded-2xl border border-amber-200 dark:border-amber-500/15 space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-xs font-black text-amber-700 dark:text-amber-400 uppercase tracking-widest" data-i18n="step2.cautionTitle">주의사항</span>
+                    </div>
+                    <p class="text-sm text-amber-800 dark:text-amber-300 leading-relaxed" data-i18n="step4.buttonAc.caution">버튼을 너무 빠르게 누르면 에어컨이 명령을 놓칠 수 있으므로 0.5초~1초의 간격을 두고 눌러주세요.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== BRIDGE SETUP 1: DRIVER INSTALL ===== -->
         <section id="bridge_setup1" class="step-content">
             <div class="glass-card p-8 md:p-12 space-y-8">
@@ -3161,6 +3236,22 @@
                 "step4.fanPercentPreset25": "기본",
                 "step4.fanPercentPreset20": "촘촘하게",
                 "step4.fanPercentPreset10": "가장 촘촘하게",
+                "step3.buttonAc.modeOneBtn": "눌러서 온도 올리고 내리기",
+                "step3.buttonAc.modeOneBtnDesc": "한 번 눌러서 온도 올리고, 두 번 빠르게 눌러서 온도 내리기",
+                "step3.buttonAc.modeMultiA": "눌러서 온도 올리기",
+                "step3.buttonAc.modeMultiADesc": "버튼을 한 번 누를 때마다 온도가 1°C 올라갑니다",
+                "step3.buttonAc.modeMultiB": "눌러서 온도 내리기",
+                "step3.buttonAc.modeMultiBDesc": "버튼을 한 번 누를 때마다 온도가 1°C 내려갑니다",
+                "step4.buttonAc.stepAmountTitle": "한 번 누를 때마다 바뀌는 에어컨 온도 레벨",
+                "step4.buttonAc.stepNote": "1°C 단위로 고정되어 있습니다. 버튼 1회 클릭마다 온도가 1°C 변경됩니다.",
+                "step4.buttonAc.acStepPreviewLabel": "온도 범위 미리보기",
+                "step4.buttonAc.acStepPreviewNote": "1°C 단위로 온도가 단계적으로 조절됩니다.",
+                "step4.buttonAc.loopModeTitle": "루프 모드",
+                "step4.buttonAc.loopModeDesc": "최고 온도에 도달했을 때 한 번 더 누르면 최저 온도로 돌아갑니다.",
+                "step4.buttonAc.caution": "버튼을 너무 빠르게 누르면 에어컨이 명령을 놓칠 수 있으므로 0.5초~1초의 간격을 두고 눌러주세요.",
+                "step.4buttonAc.title": "에어컨 온도 스텝 세팅",
+                "preset.buttonAc.title": "IoT 버튼으로 에어컨 온도 제어",
+                "preset.buttonAc.desc": "버튼을 눌러서 에어컨 온도를 1°C 단위로 단계적으로 제어합니다.",
                 "category.button": "IoT 버튼",
             },
             en: {
@@ -3455,6 +3546,22 @@
                 "step4.fanPercentPreset25": "4 Steps",
                 "step4.fanPercentPreset20": "5 Steps",
                 "step4.fanPercentPreset10": "10 Steps",
+                "step3.buttonAc.modeOneBtn": "Press to raise and lower temperature",
+                "step3.buttonAc.modeOneBtnDesc": "Press once to raise temperature, and double press quickly to lower temperature",
+                "step3.buttonAc.modeMultiA": "Press to raise temperature",
+                "step3.buttonAc.modeMultiADesc": "Temperature increases 1°C each time you press the button",
+                "step3.buttonAc.modeMultiB": "Press to lower temperature",
+                "step3.buttonAc.modeMultiBDesc": "Temperature decreases 1°C each time you press the button",
+                "step4.buttonAc.stepAmountTitle": "AC temperature level per press",
+                "step4.buttonAc.stepNote": "Fixed at 1°C. Each button press changes the temperature by 1°C.",
+                "step4.buttonAc.acStepPreviewLabel": "Temperature Range Preview",
+                "step4.buttonAc.acStepPreviewNote": "Temperature is adjusted in 1°C steps.",
+                "step4.buttonAc.loopModeTitle": "Loop Mode",
+                "step4.buttonAc.loopModeDesc": "When the maximum temperature is reached, one more press returns to the minimum temperature.",
+                "step4.buttonAc.caution": "If you press too quickly, the AC may miss commands. Leave about 0.5 to 1 second between presses.",
+                "step.4buttonAc.title": "AC Temperature Step Setting",
+                "preset.buttonAc.title": "Control AC Temperature with IoT Button",
+                "preset.buttonAc.desc": "Press the button to adjust AC temperature in 1°C steps",
                 "category.button": "Button",
             }
         };
@@ -3511,6 +3618,7 @@
             if (preset === 'button-light-control') return ['step1', 'step2_button', 'step3_button', 'step4_button', 'step4', 'step5'];
             if (preset === 'button-volume-control') return ['step1', 'step2_button', 'step3_button', 'step3_volume', 'step4_button', 'step4', 'step5'];
             if (preset === 'button-fan-control') return ['step1', 'step2_button', 'step3_fan', 'step3_button', 'step4_button', 'step4', 'step5'];
+            if (preset === 'button-ac-control') return ['step1', 'step2_button', 'step3_button', 'step3_ac', 'step4_button_ac', 'step4', 'step5'];
             return ['step1', 'step2', 'step4', 'step5']; // dimmer-control (no step3)
         }
 
@@ -3520,6 +3628,7 @@
             if (preset === 'button-light-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.4button.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-volume-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3vol.title'), t('step.4buttonVolume.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-fan-control') return [...base, t('step.2button.title'), t('step.3fan.title'), t('step.3button.title'), t('step4.buttonFan.title'), t('step.4.title'), t('step.5.title')];
+            if (preset === 'button-ac-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3ac.title'), t('step.4buttonAc.title'), t('step.4.title'), t('step.5.title')];
             
             const base2 = [t('step.1.title'), t('step.2.title')];
             if (preset === 'ct-control') return [...base2, t('step.3.title'), t('step.4.title'), t('step.5.title')];
@@ -3683,12 +3792,15 @@
             // Volume preview when on step3_volume
             if ((selectedPreset === 'volume-control' || selectedPreset === 'button-volume-control') && targetId === 'step3_volume') updateVolPreview();
             // AC preview when on step3_ac
-            if (selectedPreset === 'ac-control' && targetId === 'step3_ac') updateAcPreview();
+            if ((selectedPreset === 'ac-control' || selectedPreset === 'button-ac-control') && targetId === 'step3_ac') updateAcPreview();
+            // AC button step preview
+            if (selectedPreset === 'button-ac-control' && targetId === 'step4_button_ac') updateButtonAcStepPreview();
             // Color preview when on step3_color
             if (selectedPreset === 'color-control' && targetId === 'step3_color') selectSaturation(selectedSaturation);
             if (targetId === 'step3_fan') selectFanMode(selectedFanMode);
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control') && targetId === 'step2_button') updateButtonTargetCopy();
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control') && targetId === 'step3_button') updateButtonModeCopy();
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control') && targetId === 'step2_button') updateButtonTargetCopy();
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control') && targetId === 'step3_button') updateButtonModeCopy();
+
             if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control') && targetId === 'step4_button') {
                 updateButtonStepCopy();
                 updateButtonStepPreview();
@@ -3801,6 +3913,93 @@
                 });
                 const c3 = document.getElementById('caution_line3');
                 if (c3) { c3.setAttribute('data-i18n', 'step2.cautionAc'); c3.innerText = t('step2.cautionAc'); }
+
+            } else if (selectedPreset === 'button-ac-control') {
+                const btnId = document.getElementById('input_button').value.trim() || '@device_button';
+                const compWrap = document.getElementById('component_input_wrap_button');
+                const isCompHidden = compWrap && compWrap.classList.contains('hidden');
+                const rawCompVal = document.getElementById('input_button_component')?.value.trim();
+                const btnCompId = (!isCompHidden && rawCompVal) ? rawCompVal : 'main';
+                const targetAcIds = getButtonTargetDeviceIds('@device_ac');
+                const { min: acMin, max: acMax } = getAcRange();
+                const loop = buttonAcLoopMode;
+
+                function acTempOperand() {
+                    return { "device": { "devices": targetAcIds, "component": "main", "capability": "thermostatCoolingSetpoint", "attribute": "coolingSetpoint", "trigger": "Never" } };
+                }
+
+                function createAcCommand(targetVal) {
+                    return [{ "command": { "devices": targetAcIds, "commands": [{ "component": "main", "capability": "thermostatCoolingSetpoint", "command": "setCoolingSetpoint", "arguments": [{ "integer": targetVal }] }] } }];
+                }
+
+                function createAcBetweenBlock(sourceVal, targetVal) {
+                    return {
+                        "if": {
+                            "between": {
+                                "value": acTempOperand(),
+                                "start": { "integer": sourceVal },
+                                "end": { "integer": sourceVal }
+                            },
+                            "then": createAcCommand(targetVal)
+                        }
+                    };
+                }
+
+                function createAcBoundaryBlock(type, boundaryVal, targetVal) {
+                    return {
+                        "if": {
+                            [type]: {
+                                "left": acTempOperand(),
+                                "right": { "integer": boundaryVal }
+                            },
+                            "then": createAcCommand(targetVal)
+                        }
+                    };
+                }
+
+                function buildAcUpBlocks() {
+                    const thenBlocks = [];
+                    for (let temp = acMin; temp < acMax; temp++) {
+                        thenBlocks.push(createAcBetweenBlock(temp, temp + 1));
+                    }
+                    if (loop) thenBlocks.push(createAcBoundaryBlock("greaterThanOrEquals", acMax, acMin));
+                    return thenBlocks;
+                }
+
+                function buildAcDownBlocks() {
+                    const thenBlocks = [];
+                    for (let temp = acMax; temp > acMin; temp--) {
+                        thenBlocks.push(createAcBetweenBlock(temp, temp - 1));
+                    }
+                    if (loop) thenBlocks.push(createAcBoundaryBlock("lessThanOrEquals", acMin, acMax));
+                    return thenBlocks;
+                }
+
+                function createRootBlock(eventStr, blocks) {
+                    return {
+                        "if": {
+                            "equals": {
+                                "left": { "string": eventStr },
+                                "right": {
+                                    "device": { "devices": [btnId], "component": btnCompId, "capability": "button", "attribute": "button", "trigger": "Always" }
+                                }
+                            },
+                            "then": blocks
+                        }
+                    };
+                }
+
+                let ruleArray = [];
+                if (buttonMode === 'one_button') {
+                    ruleArray.push(createRootBlock("pushed", buildAcUpBlocks()));
+                    ruleArray.push(createRootBlock("double", buildAcDownBlocks()));
+                } else if (buttonMode === 'multi_up') {
+                    ruleArray.push(createRootBlock("pushed", buildAcUpBlocks()));
+                } else if (buttonMode === 'multi_down') {
+                    ruleArray.push(createRootBlock("pushed", buildAcDownBlocks()));
+                }
+                finalJsonString = formatRuleJson(ruleArray);
+
             } else if (selectedPreset === 'color-control') {
                 label.setAttribute('data-i18n', 'step2.lightLabel');
                 label.innerText = t('step2.lightLabel');
@@ -3829,10 +4028,11 @@
         function updateButtonTargetCopy() {
             const isVolumeButton = selectedPreset === 'button-volume-control';
             const isFanButton = selectedPreset === 'button-fan-control';
-            const labelKey = isFanButton ? 'step2.fanLabel' : (isVolumeButton ? 'step2.volumeLabel' : 'step2.lightLabel');
-            const tipKey = isFanButton ? 'step2.fanTip' : (isVolumeButton ? 'step2.volumeTip' : 'step2.lightTip');
-            const placeholderKey = isFanButton ? 'step2.fanPlaceholder' : (isVolumeButton ? 'step2.volumePlaceholder' : 'step2.lightPlaceholder');
-            const cautionKey = isFanButton ? 'step2.cautionFan' : (isVolumeButton ? 'step2.cautionVolume' : 'step2.caution3');
+            const isAcButton = selectedPreset === 'button-ac-control';
+            const labelKey = isAcButton ? 'step2.acLabel' : (isFanButton ? 'step2.fanLabel' : (isVolumeButton ? 'step2.volumeLabel' : 'step2.lightLabel'));
+            const tipKey = isAcButton ? 'step2.acTip' : (isFanButton ? 'step2.fanTip' : (isVolumeButton ? 'step2.volumeTip' : 'step2.lightTip'));
+            const placeholderKey = isAcButton ? 'step2.acPlaceholder' : (isFanButton ? 'step2.fanPlaceholder' : (isVolumeButton ? 'step2.volumePlaceholder' : 'step2.lightPlaceholder'));
+            const cautionKey = isAcButton ? 'step2.cautionAc' : (isFanButton ? 'step2.cautionFan' : (isVolumeButton ? 'step2.cautionVolume' : 'step2.caution3'));
             const label = document.querySelector('#step2_button [data-i18n="step2.lightLabel"], #step2_button [data-i18n="step2.volumeLabel"], #step2_button [data-i18n="step2.fanLabel"]');
             const tip = document.querySelector('#step2_button [data-i18n="step2.lightTip"], #step2_button [data-i18n="step2.volumeTip"], #step2_button [data-i18n="step2.fanTip"]');
             const caution = document.querySelector('#step2_button [data-i18n="step2.caution3"], #step2_button [data-i18n="step2.cautionVolume"], #step2_button [data-i18n="step2.cautionFan"]');
@@ -3858,16 +4058,17 @@
         function updateButtonModeCopy() {
             const isVolumeButton = selectedPreset === 'button-volume-control';
             const isFanButton = selectedPreset === 'button-fan-control';
+            const isAcButton = selectedPreset === 'button-ac-control';
             const copyMap = [
-                ['step3.modeOneBtn', 'step3.buttonVolume.modeOneBtn', 'step3.buttonFan.modeOneBtn', isFanButton ? 'step3.buttonFan.modeOneBtn' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtn' : 'step3.modeOneBtn')],
-                ['step3.modeOneBtnDesc', 'step3.buttonVolume.modeOneBtnDesc', 'step3.buttonFan.modeOneBtnDesc', isFanButton ? 'step3.buttonFan.modeOneBtnDesc' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtnDesc' : 'step3.modeOneBtnDesc')],
-                ['step3.modeMultiA', 'step3.buttonVolume.modeMultiA', 'step3.buttonFan.modeMultiA', isFanButton ? 'step3.buttonFan.modeMultiA' : (isVolumeButton ? 'step3.buttonVolume.modeMultiA' : 'step3.modeMultiA')],
-                ['step3.modeMultiADesc', 'step3.buttonVolume.modeMultiADesc', 'step3.buttonFan.modeMultiADesc', isFanButton ? 'step3.buttonFan.modeMultiADesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiADesc' : 'step3.modeMultiADesc')],
-                ['step3.modeMultiB', 'step3.buttonVolume.modeMultiB', 'step3.buttonFan.modeMultiB', isFanButton ? 'step3.buttonFan.modeMultiB' : (isVolumeButton ? 'step3.buttonVolume.modeMultiB' : 'step3.modeMultiB')],
-                ['step3.modeMultiBDesc', 'step3.buttonVolume.modeMultiBDesc', 'step3.buttonFan.modeMultiBDesc', isFanButton ? 'step3.buttonFan.modeMultiBDesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiBDesc' : 'step3.modeMultiBDesc')]
+                ['step3.modeOneBtn', 'step3.buttonVolume.modeOneBtn', 'step3.buttonFan.modeOneBtn', 'step3.buttonAc.modeOneBtn', isAcButton ? 'step3.buttonAc.modeOneBtn' : (isFanButton ? 'step3.buttonFan.modeOneBtn' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtn' : 'step3.modeOneBtn'))],
+                ['step3.modeOneBtnDesc', 'step3.buttonVolume.modeOneBtnDesc', 'step3.buttonFan.modeOneBtnDesc', 'step3.buttonAc.modeOneBtnDesc', isAcButton ? 'step3.buttonAc.modeOneBtnDesc' : (isFanButton ? 'step3.buttonFan.modeOneBtnDesc' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtnDesc' : 'step3.modeOneBtnDesc'))],
+                ['step3.modeMultiA', 'step3.buttonVolume.modeMultiA', 'step3.buttonFan.modeMultiA', 'step3.buttonAc.modeMultiA', isAcButton ? 'step3.buttonAc.modeMultiA' : (isFanButton ? 'step3.buttonFan.modeMultiA' : (isVolumeButton ? 'step3.buttonVolume.modeMultiA' : 'step3.modeMultiA'))],
+                ['step3.modeMultiADesc', 'step3.buttonVolume.modeMultiADesc', 'step3.buttonFan.modeMultiADesc', 'step3.buttonAc.modeMultiADesc', isAcButton ? 'step3.buttonAc.modeMultiADesc' : (isFanButton ? 'step3.buttonFan.modeMultiADesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiADesc' : 'step3.modeMultiADesc'))],
+                ['step3.modeMultiB', 'step3.buttonVolume.modeMultiB', 'step3.buttonFan.modeMultiB', 'step3.buttonAc.modeMultiB', isAcButton ? 'step3.buttonAc.modeMultiB' : (isFanButton ? 'step3.buttonFan.modeMultiB' : (isVolumeButton ? 'step3.buttonVolume.modeMultiB' : 'step3.modeMultiB'))],
+                ['step3.modeMultiBDesc', 'step3.buttonVolume.modeMultiBDesc', 'step3.buttonFan.modeMultiBDesc', 'step3.buttonAc.modeMultiBDesc', isAcButton ? 'step3.buttonAc.modeMultiBDesc' : (isFanButton ? 'step3.buttonFan.modeMultiBDesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiBDesc' : 'step3.modeMultiBDesc'))]
             ];
-            copyMap.forEach(([baseKey, volumeKey, fanKey, nextKey]) => {
-                const el = document.querySelector(`#step3_button [data-i18n="${baseKey}"], #step3_button [data-i18n="${volumeKey}"], #step3_button [data-i18n="${fanKey}"]`);
+            copyMap.forEach(([baseKey, volumeKey, fanKey, acKey, nextKey]) => {
+                const el = document.querySelector(`#step3_button [data-i18n="${baseKey}"], #step3_button [data-i18n="${volumeKey}"], #step3_button [data-i18n="${fanKey}"], #step3_button [data-i18n="${acKey}"]`);
                 if (!el) return;
                 el.setAttribute('data-i18n', nextKey);
                 el.innerText = t(nextKey);
@@ -3987,7 +4188,9 @@
                 ? 'step2.fanPlaceholder'
                 : selectedPreset === 'button-volume-control'
                     ? 'step2.volumePlaceholder'
-                    : 'step2.lightPlaceholder';
+                    : selectedPreset === 'button-ac-control'
+                        ? 'step2.acPlaceholder'
+                        : 'step2.lightPlaceholder';
             wrapper.innerHTML = `
         <div class="relative flex-1 min-w-0">
             <input type="text" oninput="validateField(this)"
@@ -4176,7 +4379,7 @@
         function validateStep2() {
             let inputsToValidate = [];
             let msgId = 'validationMsg';
-            if (selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control') {
+            if (selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control') {
                 inputsToValidate = [
                     document.getElementById('input_button'),
                     ...getButtonTargetDeviceInputs()
@@ -4277,7 +4480,7 @@
             if (dir === 1 && currentStep === 2 && !validateStep2()) return;
             if (dir === 1 && getStepMap(selectedPreset)[currentStep - 1] === 'step3' && !validateCTRange()) return;
             if (dir === 1 && getStepMap(selectedPreset)[currentStep - 1] === 'step3_volume' && !validateVolRange()) return;
-            if (dir === 1 && getStepMap(selectedPreset)[currentStep - 1] === 'step3_ac' && !validateAcRange()) return;
+            if (dir === 1 && getStepMap(selectedPreset)[currentStep - 1] === 'step3_ac' && (selectedPreset === 'ac-control' || selectedPreset === 'button-ac-control') && !validateAcRange()) return;
             if (dir === 1 && currentStep === totalSteps) {
                 document.getElementById('confirmModal').classList.add('active');
                 return;
@@ -4334,7 +4537,7 @@
         }
 
         function selectPreset(id) {
-            if (id === 'button-light-control' || id === 'button-volume-control' || id === 'button-fan-control') {
+            if (id === 'button-light-control' || id === 'button-volume-control' || id === 'button-fan-control' || id === 'button-ac-control') {
                 startButtonPreset(id);
             } else {
                 pendingPreset = id;
@@ -4346,6 +4549,7 @@
         let buttonStepAmount = 25;
         let buttonStepUnit = 'step';
         let buttonLoopMode = false;
+        let buttonAcLoopMode = false;
 
         function startButtonPreset(id = 'button-light-control') {
             selectedPreset = id;
@@ -4357,11 +4561,16 @@
             if (id === 'button-fan-control') {
                 selectedFanMode = 'fixed5';
                 setButtonStepAmount(1);
+            } else if (id === 'button-ac-control') {
+                document.getElementById('ac_min').value = '18';
+                document.getElementById('ac_max').value = '30';
             } else {
                 setButtonStepAmount(id === 'button-light-control' ? 25 : 1);
             }
             document.getElementById('btn_loop_toggle').checked = false;
             buttonLoopMode = false;
+            document.getElementById('btn_ac_loop_toggle').checked = false;
+            buttonAcLoopMode = false;
             updateButtonTargetCopy();
             updateUI();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4541,6 +4750,26 @@
             buttonLoopMode = document.getElementById('btn_loop_toggle').checked;
         }
 
+        function updateButtonAcStepPreview() {
+            const bar = document.getElementById('button_ac_step_bar');
+            const text = document.getElementById('button_ac_step_preview_text');
+            if (!bar || !text) return;
+            const { min, max } = getAcRange();
+            const safeMin = Number.isInteger(min) ? Math.max(0, Math.min(min, 40)) : 18;
+            const safeMax = Number.isInteger(max) ? Math.max(0, Math.min(max, 40)) : 30;
+            const positions = [];
+            const range = Math.max(1, safeMax - safeMin);
+            for (let v = safeMin; v <= safeMax; v++) {
+                positions.push(((v - safeMin) / range) * 100);
+            }
+            bar.innerHTML = positions.map(pos => `<span class="brightness-step-marker" style="left:${pos}%"></span>`).join('');
+            text.innerText = `${safeMin}°C → ${safeMax}°C`;
+        }
+
+        function toggleButtonAcLoop() {
+            buttonAcLoopMode = document.getElementById('btn_ac_loop_toggle').checked;
+        }
+
         function startMainPreset(id) {
             selectedPreset = id;
             selectedFanMode = 'fixed5';
@@ -4600,6 +4829,7 @@
             buttonStepAmount = 1;
             buttonStepUnit = 'step';
             buttonLoopMode = false;
+            buttonAcLoopMode = false;
             document.getElementById('input_button_step').value = '1';
             document.getElementById('btn_loop_toggle').checked = false;
             setButtonMode('one_button');
@@ -5428,6 +5658,93 @@
                     '@device_ac': acIds
                 });
                 finalJsonString = formatRuleJson(applyRelativeKnobGate(rule, dimmerId, componentId));
+
+
+            } else if (selectedPreset === 'button-ac-control') {
+                const btnId = document.getElementById('input_button').value.trim() || '@device_button';
+                const compWrap = document.getElementById('component_input_wrap_button');
+                const isCompHidden = compWrap && compWrap.classList.contains('hidden');
+                const rawCompVal = document.getElementById('input_button_component')?.value.trim();
+                const btnCompId = (!isCompHidden && rawCompVal) ? rawCompVal : 'main';
+                const targetAcIds = getButtonTargetDeviceIds('@device_ac');
+                const { min: acMin, max: acMax } = getAcRange();
+                const loop = buttonAcLoopMode;
+
+                function acTempOperand() {
+                    return { "device": { "devices": targetAcIds, "component": "main", "capability": "thermostatCoolingSetpoint", "attribute": "coolingSetpoint", "trigger": "Never" } };
+                }
+
+                function createAcCommand(targetVal) {
+                    return [{ "command": { "devices": targetAcIds, "commands": [{ "component": "main", "capability": "thermostatCoolingSetpoint", "command": "setCoolingSetpoint", "arguments": [{ "integer": targetVal }] }] } }];
+                }
+
+                function createAcBetweenBlock(sourceVal, targetVal) {
+                    return {
+                        "if": {
+                            "between": {
+                                "value": acTempOperand(),
+                                "start": { "integer": sourceVal },
+                                "end": { "integer": sourceVal }
+                            },
+                            "then": createAcCommand(targetVal)
+                        }
+                    };
+                }
+
+                function createAcBoundaryBlock(type, boundaryVal, targetVal) {
+                    return {
+                        "if": {
+                            [type]: {
+                                "left": acTempOperand(),
+                                "right": { "integer": boundaryVal }
+                            },
+                            "then": createAcCommand(targetVal)
+                        }
+                    };
+                }
+
+                function buildAcUpBlocks() {
+                    const thenBlocks = [];
+                    for (let temp = acMin; temp < acMax; temp++) {
+                        thenBlocks.push(createAcBetweenBlock(temp, temp + 1));
+                    }
+                    if (loop) thenBlocks.push(createAcBoundaryBlock("greaterThanOrEquals", acMax, acMin));
+                    return thenBlocks;
+                }
+
+                function buildAcDownBlocks() {
+                    const thenBlocks = [];
+                    for (let temp = acMax; temp > acMin; temp--) {
+                        thenBlocks.push(createAcBetweenBlock(temp, temp - 1));
+                    }
+                    if (loop) thenBlocks.push(createAcBoundaryBlock("lessThanOrEquals", acMin, acMax));
+                    return thenBlocks;
+                }
+
+                function createRootBlock(eventStr, blocks) {
+                    return {
+                        "if": {
+                            "equals": {
+                                "left": { "string": eventStr },
+                                "right": {
+                                    "device": { "devices": [btnId], "component": btnCompId, "capability": "button", "attribute": "button", "trigger": "Always" }
+                                }
+                            },
+                            "then": blocks
+                        }
+                    };
+                }
+
+                let ruleArray = [];
+                if (buttonMode === 'one_button') {
+                    ruleArray.push(createRootBlock("pushed", buildAcUpBlocks()));
+                    ruleArray.push(createRootBlock("double", buildAcDownBlocks()));
+                } else if (buttonMode === 'multi_up') {
+                    ruleArray.push(createRootBlock("pushed", buildAcUpBlocks()));
+                } else if (buttonMode === 'multi_down') {
+                    ruleArray.push(createRootBlock("pushed", buildAcDownBlocks()));
+                }
+                finalJsonString = formatRuleJson(ruleArray);
 
             } else if (selectedPreset === 'color-control') {
                 const targetLightIds = getTargetDeviceIds('@device_light');
