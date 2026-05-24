@@ -2046,15 +2046,44 @@
 
                     <!-- Component ID Setup -->
                     <div id="component_setup_container_button" class="mt-2">
-                        <button type="button" onclick="document.getElementById('component_input_wrap_button').classList.remove('hidden'); this.classList.add('hidden');" class="text-sm text-[#008DF7] font-bold hover:underline" data-i18n="step2.buttonComponentLink">이 리모컨에 버튼이 여러개 있거나 그룹 지정 기능이 있나요?</button>
+                        <button type="button" id="btn_show_component_button" onclick="showButtonComponentInput()"
+                            class="text-sm text-[#008DF7] font-bold hover:underline" data-i18n="step2.buttonComponentLink">이 리모컨에 버튼이 여러개 있거나 그룹 지정 기능이 있나요?</button>
                         <div id="component_input_wrap_button" class="hidden animate-[fadeIn_0.3s_ease]">
                             <div class="flex items-center gap-2 mb-2">
-                                <label class="block text-sm font-black text-gray-600 dark:text-zinc-400 uppercase tracking-wider">Component ID</label>
+                                <label
+                                    class="block text-sm font-black text-gray-600 dark:text-zinc-400 uppercase tracking-wider">Component
+                                    ID</label>
+                                <div class="tooltip-wrap">
+                                    <button type="button"
+                                        class="w-4 h-4 rounded-full bg-amber-100 text-amber-500 dark:bg-amber-500/20 dark:text-amber-400 flex items-center justify-center flex-shrink-0 text-[10px] font-black">!</button>
+                                    <div class="tooltip-box text-left" style="width: 280px;"
+                                        data-i18n-html="step2.componentTip">⚠️ <strong>주의:</strong> SmartThings Advanced
+                                        Web App에서 해당 기기의 정확한 <strong>Component ID</strong>를 확인 후 입력하세요. 대소문자를 엄격히 구분합니다.
+                                        (잘못 입력 시 루틴이 등록되지 않습니다.)</div>
+                                </div>
                             </div>
                             <div class="flex gap-3 items-center">
                                 <div class="relative flex-1 min-w-0">
-                                    <input type="text" id="input_button_component" value="main" oninput="validateField(this)" class="w-full px-6 py-5 bg-gray-100 dark:bg-white/5 border-none rounded-2xl text-base outline-none pr-12">
+                                    <input type="text" id="input_button_component" value="main" oninput="validateField(this)"
+                                        class="w-full px-6 py-5 bg-gray-100 dark:bg-white/5 border-none rounded-2xl text-base outline-none pr-12"
+                                        placeholder="e.g. main">
+                                    <button type="button" onclick="clearInput('input_button_component')"
+                                        class="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                                        title="Clear">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
                                 </div>
+                                <button type="button" onclick="hideButtonComponentInput()"
+                                    class="p-5 bg-gray-100 dark:bg-white/5 rounded-2xl text-gray-400 hover:text-red-500 hover:bg-red-500/5 transition-all"
+                                    aria-label="Cancel Component ID config">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -3832,6 +3861,18 @@
             const btn = document.getElementById('bridge_btn_show_component');
             if (btn) btn.classList.remove('hidden');
         }
+        function showButtonComponentInput() {
+            document.getElementById('btn_show_component_button').classList.add('hidden');
+            document.getElementById('component_input_wrap_button').classList.remove('hidden');
+        }
+        function hideButtonComponentInput() {
+            const input = document.getElementById('input_button_component');
+            if (input) input.value = 'main';
+            const wrap = document.getElementById('component_input_wrap_button');
+            if (wrap) wrap.classList.add('hidden');
+            const btn = document.getElementById('btn_show_component_button');
+            if (btn) btn.classList.remove('hidden');
+        }
 
         function updateStep2Labels() {
             const isFan = selectedPreset === 'fan-control';
@@ -4558,6 +4599,7 @@
             currentStep = 2;
             setButtonMode('one_button');
             setButtonStepUnit('step');
+            hideButtonComponentInput();
             if (id === 'button-fan-control') {
                 selectedFanMode = 'fixed5';
                 setButtonStepAmount(1);
@@ -4812,6 +4854,7 @@
             document.getElementById('bridge_input_virtual').value = '';
             hideComponentInput();
             hideBridgeComponentInput();
+            hideButtonComponentInput();
             document.getElementById('vol_min').value = '0';
             document.getElementById('vol_max').value = '20';
             document.getElementById('ac_min').value = '18';
