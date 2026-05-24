@@ -1,0 +1,28 @@
+{
+  "name": "SmartThings Rule Builder",
+  "short_name": "Rule Builder",
+  "description": "스마트싱스 룰빌더로 코딩 지식 없이도 SmartThings Rules API 루틴을 간편하게 만들고 스마트홈의 잠재력을 끌어올리세요.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF", 
+  "theme_color": "#008DF7",
+  "icons": [
+    {
+      "src": "images/brandidentity/logo_rulebuilde_symbol_512h.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/brandidentity/logo_rulebuilde_symbol_512h.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/brandidentity/logo_rulebuilde_symbol_512h.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
