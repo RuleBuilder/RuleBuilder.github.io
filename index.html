@@ -1231,6 +1231,29 @@
                     </div>
                 </div>
 
+                <!-- Preset: Button Fan Speed Control -->
+                <div onclick="selectPreset('button-fan-control')" data-device-category="button"
+                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                    <div
+                        class="w-14 h-14 bg-teal-50 dark:bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 tracking-tight" data-i18n="preset.buttonFan.title">IoT 버튼으로 선풍기 바람세기 제어</h3>
+                    <p class="text-sm md:text-base text-gray-500 dark:text-zinc-400 leading-relaxed"
+                        data-i18n="preset.buttonFan.desc">버튼을 눌러서 선풍기 바람세기를 단계적으로 제어합니다.</p>
+                    <div
+                        class="mt-6 flex items-center text-teal-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+                        <span data-i18n="preset.select">선택하기</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </div>
+                </div>
+
                 <!-- Preset: Button Volume Control -->
                 <div onclick="selectPreset('button-volume-control')" data-device-category="button"
                     class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-violet-400/30 dark:hover:border-violet-500/20 group">
@@ -1258,21 +1281,21 @@
                     </div>
                 </div>
 
-                <!-- Preset: Button Fan Speed Control -->
-                <div onclick="selectPreset('button-fan-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                <!-- Preset: Button Shade Control -->
+                <div onclick="selectPreset('button-shade-control')" data-device-category="button"
+                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-emerald-400/30 dark:hover:border-emerald-500/20 group">
                     <div
-                        class="w-14 h-14 bg-teal-50 dark:bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="w-14 h-14 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2" />
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3 tracking-tight" data-i18n="preset.buttonFan.title">IoT 버튼으로 선풍기 바람세기 제어</h3>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 tracking-tight" data-i18n="preset.buttonShade.title">IoT 버튼으로 커튼/블라인드 제어</h3>
                     <p class="text-sm md:text-base text-gray-500 dark:text-zinc-400 leading-relaxed"
-                        data-i18n="preset.buttonFan.desc">버튼을 눌러서 선풍기 바람세기를 단계적으로 제어합니다.</p>
+                        data-i18n="preset.buttonShade.desc">버튼을 눌러서 커튼이나 블라인드를 단계적으로 여닫습니다.</p>
                     <div
-                        class="mt-6 flex items-center text-teal-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+                        class="mt-6 flex items-center text-emerald-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
                         <span data-i18n="preset.select">선택하기</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -1280,7 +1303,6 @@
                         </svg>
                     </div>
                 </div>
-
 
                 <!-- Preset: Button AC Control -->
                 <div onclick="selectPreset('button-ac-control')" data-device-category="button"
@@ -3015,6 +3037,7 @@
                 "step.3button.title": "버튼 모드 선택",
                 "step.4button.title": "밝기 범위 및 스텝 세팅",
                 "step.4buttonVolume.title": "볼륨 스텝 세팅",
+                "step.4buttonShade.title": "커튼/블라인드 스텝 세팅",
 
                 "preset.select": "선택하기",
                 "preset.dimmer.title": "IoT 노브로 조명 밝기 제어",
@@ -3035,6 +3058,8 @@
                 "preset.buttonVolume.desc": "버튼을 눌러서 오디오 볼륨을 단계적으로 제어합니다.",
                 "preset.buttonFan.title": "IoT 버튼으로 선풍기 바람세기 제어",
                 "preset.buttonFan.desc": "버튼을 눌러서 선풍기 바람세기를 단계적으로 제어합니다.",
+                "preset.buttonShade.title": "IoT 버튼으로 커튼/블라인드 제어",
+                "preset.buttonShade.desc": "버튼을 눌러서 커튼이나 블라인드를 단계적으로 여닫습니다.",
 
                 "step2.banner": "SmartThings Advanced Web App에서 기기 ID를 가져오세요.",
                 "step2.cautionTitle": "주의사항",
@@ -3065,6 +3090,7 @@
                 "step2.cautionVolume": "오디오 기기가 Audio Volume 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
                 "step2.cautionBlind": "기기가 Window Shade Level 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
                 "step2.cautionAc": "에어컨이 Thermostat Cooling Setpoint 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
+                "step2.cautionButtonShade": "블라인드/커튼이 windowShadeLevel 기능을 지원하는지 확인하세요.",
                 "step2.validationMsg": "필수 정보를 모두 입력해야 다음으로 진행할 수 있습니다.",
                 "step2.componentLink": "이 디머에 노브가 여러 개 있거나 그룹 지정 기능이 있나요?",
                 "step2.componentTip": "⚠️ <strong>주의:</strong> SmartThings Advanced Web App에서 해당 기기의 정확한 <strong>Component ID</strong>를 확인 후 입력하세요. 대소문자를 엄격히 구분합니다. (잘못 입력 시 루틴이 등록되지 않습니다.)",
@@ -3267,6 +3293,18 @@
                 "step4.buttonFan.sliderStepPreviewNote": "바람세기 스텝의 퍼센트가 작을수록 더 많은 바람세기 단계를 표현할 수 있지만, 원하는 세기까지 버튼을 더 많이 눌러야 합니다.",
                 "step4.buttonFan.loopModeDesc": "바람세기가 끝까지 바뀌었을 때 한 번 더 누르면 반대쪽의 바람세기로 돌아갑니다.",
                 "step4.buttonFan.caution": "버튼을 너무 빠르게 누르면 선풍기가 명령을 놓칠 수 있으므로 0.5초~1초의 간격을 두고 눌러주세요.",
+                "step3.buttonShade.modeOneBtn": "눌러서 커튼 열고 닫기",
+                "step3.buttonShade.modeOneBtnDesc": "한 번 누르면 커튼을 열고, 빠르게 두 번 누르면 커튼을 닫습니다",
+                "step3.buttonShade.modeMultiA": "눌러서 커튼 열기",
+                "step3.buttonShade.modeMultiADesc": "버튼을 한 번 누를 때마다 커튼이 열립니다",
+                "step3.buttonShade.modeMultiB": "눌러서 커튼 닫기",
+                "step3.buttonShade.modeMultiBDesc": "버튼을 한 번 누를 때마다 커튼이 닫힙니다",
+                "step4.buttonShade.title": "커튼/블라인드 여닫힘 스텝 설정",
+                "step4.buttonShade.stepAmountTitle": "한 번 누를 때마다 바뀌는 열림/닫힘 레벨",
+                "step4.buttonShade.stepPreviewLabel": "커튼/블라인드 스텝 미리보기",
+                "step4.buttonShade.stepPreviewNote": "제어 단위의 퍼센트가 작을수록 더 세밀하게 조절할 수 있지만, 원하는 위치까지 버튼을 더 많이 눌러야 합니다.",
+                "step4.buttonShade.loopModeDesc": "여닫힘 스텝이 끝까지 바뀌었을 때 한 번 더 누르면 반대쪽의 여닫힘 스텝으로 돌아갑니다",
+                "step4.buttonShade.caution": "버튼을 너무 빠르게 연속으로 누르면 기기 제어가 지연될 수 있으니 약 0.5초~1초 기량 간격을 충분히 두고 여유 있게 눌러주세요.",
                 "step4.unitStep": "스텝",
                 "step4.unitPercent": "퍼센트",
                 "step4.fanPercentPreset50": "빠르게",
@@ -3325,6 +3363,7 @@
                 "step.3button.title": "Button Mode",
                 "step.4button.title": "Brightness Range & Step",
                 "step.4buttonVolume.title": "Volume Step Setting",
+                "step.4buttonShade.title": "Curtain/Blinds Step Setting",
 
                 "preset.select": "Select",
                 "preset.dimmer.title": "Control Light Brightness via IoT Knob",
@@ -3345,6 +3384,8 @@
                 "preset.buttonVolume.desc": "Press the button to adjust audio volume in steps",
                 "preset.buttonFan.title": "Control Fan Speed with IoT Button",
                 "preset.buttonFan.desc": "Press the button to adjust fan speed in steps",
+                "preset.buttonShade.title": "Control Curtains/Blinds with IoT Button",
+                "preset.buttonShade.desc": "Press the button to adjust curtain/blind shade level in steps.",
 
                 "step2.banner": "Get your device IDs from SmartThings Advanced Web App.",
                 "step2.cautionTitle": "Caution",
@@ -3375,6 +3416,7 @@
                 "step2.cautionVolume": "Make sure your speaker supports the Audio Volume capability. (Check in SmartThings app → Device details)",
                 "step2.cautionBlind": "Make sure your device supports the Window Shade Level capability. (Check in SmartThings app → Device details)",
                 "step2.cautionAc": "Make sure your AC supports the Thermostat Cooling Setpoint capability. (Check in SmartThings app → Device details)",
+                "step2.cautionButtonShade": "Make sure your blinds/curtains support the windowShadeLevel capability.",
                 "step2.validationMsg": "Please fill in all required fields to continue.",
                 "step2.componentLink": "Does this dimmer have multiple knobs or grouping features?",
                 "step2.componentTip": "⚠️ <strong>Caution:</strong> Check the exact <strong>Component ID</strong> of the device in the SmartThings Advanced Web App. It is strictly case-sensitive. (If entered incorrectly, the routine will not be registered.)",
@@ -3577,6 +3619,18 @@
                 "step4.buttonFan.sliderStepPreviewNote": "Smaller fan speed steps allow for more precise control, but require more button presses to reach your desired speed.",
                 "step4.buttonFan.loopModeDesc": "When fan speed reaches the end, one more press jumps to the opposite fan speed.",
                 "step4.buttonFan.caution": "If you press too quickly, the fan may miss commands. Leave about 0.5 to 1 second between presses.",
+                "step3.buttonShade.modeOneBtn": "Press to open and close shade",
+                "step3.buttonShade.modeOneBtnDesc": "Press once to open curtain, and double press quickly to close",
+                "step3.buttonShade.modeMultiA": "Press to open curtain",
+                "step3.buttonShade.modeMultiADesc": "Every press opens the curtain/blind further",
+                "step3.buttonShade.modeMultiB": "Press to close curtain",
+                "step3.buttonShade.modeMultiBDesc": "Every press closes the curtain/blind further",
+                "step4.buttonShade.title": "Curtain/Blinds Step Setting",
+                "step4.buttonShade.stepAmountTitle": "Opening level per press",
+                "step4.buttonShade.stepPreviewLabel": "Curtain/Blinds Step Preview",
+                "step4.buttonShade.stepPreviewNote": "Smaller steps give finer control, but require more button presses.",
+                "step4.buttonShade.loopModeDesc": "When step reaches the end, one more press jumps to the opposite end.",
+                "step4.buttonShade.caution": "If you press too quickly, the shade device may miss commands. Leave about 0.5 to 1 second between presses.",
                 "step4.unitStep": "Step",
                 "step4.unitPercent": "Percent",
                 "step4.fanPercentPreset50": "2 Steps",
@@ -3653,6 +3707,7 @@
             if (preset === 'color-control') return ['step1', 'step2', 'step3_color', 'step4', 'step5'];
             if (preset === 'blind-control') return ['step1', 'step2', 'step4', 'step5'];
             if (preset === 'button-light-control') return ['step1', 'step2_button', 'step3_button', 'step4_button', 'step4', 'step5'];
+            if (preset === 'button-shade-control') return ['step1', 'step2_button', 'step3_button', 'step4_button', 'step4', 'step5'];
             if (preset === 'button-volume-control') return ['step1', 'step2_button', 'step3_button', 'step3_volume', 'step4_button', 'step4', 'step5'];
             if (preset === 'button-fan-control') return ['step1', 'step2_button', 'step3_fan', 'step3_button', 'step4_button', 'step4', 'step5'];
             if (preset === 'button-ac-control') return ['step1', 'step2_button', 'step3_button', 'step3_ac', 'step4_button_ac', 'step4', 'step5'];
@@ -3663,6 +3718,7 @@
             if (appPhase === 'bridge') return getBridgeStepTitles();
             const base = [t('step.1.title')];
             if (preset === 'button-light-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.4button.title'), t('step.4.title'), t('step.5.title')];
+            if (preset === 'button-shade-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.4buttonShade.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-volume-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3vol.title'), t('step.4buttonVolume.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-fan-control') return [...base, t('step.2button.title'), t('step.3fan.title'), t('step.3button.title'), t('step4.buttonFan.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-ac-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3ac.title'), t('step.4buttonAc.title'), t('step.4.title'), t('step.5.title')];
@@ -3835,10 +3891,10 @@
             // Color preview when on step3_color
             if (selectedPreset === 'color-control' && targetId === 'step3_color') selectSaturation(selectedSaturation);
             if (targetId === 'step3_fan') selectFanMode(selectedFanMode);
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control') && targetId === 'step2_button') updateButtonTargetCopy();
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control') && targetId === 'step3_button') updateButtonModeCopy();
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control') && targetId === 'step2_button') updateButtonTargetCopy();
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control') && targetId === 'step3_button') updateButtonModeCopy();
 
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control') && targetId === 'step4_button') {
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-shade-control') && targetId === 'step4_button') {
                 updateButtonStepCopy();
                 updateButtonStepPreview();
             }
@@ -4078,13 +4134,14 @@
             const isVolumeButton = selectedPreset === 'button-volume-control';
             const isFanButton = selectedPreset === 'button-fan-control';
             const isAcButton = selectedPreset === 'button-ac-control';
-            const labelKey = isAcButton ? 'step2.acLabel' : (isFanButton ? 'step2.fanLabel' : (isVolumeButton ? 'step2.volumeLabel' : 'step2.lightLabel'));
-            const tipKey = isAcButton ? 'step2.acTip' : (isFanButton ? 'step2.fanTip' : (isVolumeButton ? 'step2.volumeTip' : 'step2.lightTip'));
-            const placeholderKey = isAcButton ? 'step2.acPlaceholder' : (isFanButton ? 'step2.fanPlaceholder' : (isVolumeButton ? 'step2.volumePlaceholder' : 'step2.lightPlaceholder'));
-            const cautionKey = isAcButton ? 'step2.cautionAc' : (isFanButton ? 'step2.cautionFan' : (isVolumeButton ? 'step2.cautionVolume' : 'step2.caution3'));
-            const label = document.querySelector('#step2_button [data-i18n="step2.lightLabel"], #step2_button [data-i18n="step2.volumeLabel"], #step2_button [data-i18n="step2.fanLabel"]');
-            const tip = document.querySelector('#step2_button [data-i18n="step2.lightTip"], #step2_button [data-i18n="step2.volumeTip"], #step2_button [data-i18n="step2.fanTip"]');
-            const caution = document.querySelector('#step2_button [data-i18n="step2.caution3"], #step2_button [data-i18n="step2.cautionVolume"], #step2_button [data-i18n="step2.cautionFan"]');
+            const isShadeButton = selectedPreset === 'button-shade-control';
+            const labelKey = isAcButton ? 'step2.acLabel' : (isFanButton ? 'step2.fanLabel' : (isVolumeButton ? 'step2.volumeLabel' : (isShadeButton ? 'step2.blindLabel' : 'step2.lightLabel')));
+            const tipKey = isAcButton ? 'step2.acTip' : (isFanButton ? 'step2.fanTip' : (isVolumeButton ? 'step2.volumeTip' : (isShadeButton ? 'step2.blindTip' : 'step2.lightTip')));
+            const placeholderKey = isAcButton ? 'step2.acPlaceholder' : (isFanButton ? 'step2.fanPlaceholder' : (isVolumeButton ? 'step2.volumePlaceholder' : (isShadeButton ? 'step2.blindPlaceholder' : 'step2.lightPlaceholder')));
+            const cautionKey = isAcButton ? 'step2.cautionAc' : (isFanButton ? 'step2.cautionFan' : (isVolumeButton ? 'step2.cautionVolume' : (isShadeButton ? 'step2.cautionButtonShade' : 'step2.caution3')));
+            const label = document.querySelector('#step2_button [data-i18n="step2.lightLabel"], #step2_button [data-i18n="step2.volumeLabel"], #step2_button [data-i18n="step2.fanLabel"], #step2_button [data-i18n="step2.acLabel"], #step2_button [data-i18n="step2.blindLabel"]');
+            const tip = document.querySelector('#step2_button [data-i18n="step2.lightTip"], #step2_button [data-i18n="step2.volumeTip"], #step2_button [data-i18n="step2.fanTip"], #step2_button [data-i18n="step2.acTip"], #step2_button [data-i18n="step2.blindTip"]');
+            const caution = document.querySelector('#step2_button [data-i18n="step2.caution3"], #step2_button [data-i18n="step2.cautionVolume"], #step2_button [data-i18n="step2.cautionFan"], #step2_button [data-i18n="step2.cautionAc"], #step2_button [data-i18n="step2.cautionButtonShade"]');
 
             if (label) {
                 label.setAttribute('data-i18n', labelKey);
@@ -4108,16 +4165,17 @@
             const isVolumeButton = selectedPreset === 'button-volume-control';
             const isFanButton = selectedPreset === 'button-fan-control';
             const isAcButton = selectedPreset === 'button-ac-control';
+            const isShadeButton = selectedPreset === 'button-shade-control';
             const copyMap = [
-                ['step3.modeOneBtn', 'step3.buttonVolume.modeOneBtn', 'step3.buttonFan.modeOneBtn', 'step3.buttonAc.modeOneBtn', isAcButton ? 'step3.buttonAc.modeOneBtn' : (isFanButton ? 'step3.buttonFan.modeOneBtn' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtn' : 'step3.modeOneBtn'))],
-                ['step3.modeOneBtnDesc', 'step3.buttonVolume.modeOneBtnDesc', 'step3.buttonFan.modeOneBtnDesc', 'step3.buttonAc.modeOneBtnDesc', isAcButton ? 'step3.buttonAc.modeOneBtnDesc' : (isFanButton ? 'step3.buttonFan.modeOneBtnDesc' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtnDesc' : 'step3.modeOneBtnDesc'))],
-                ['step3.modeMultiA', 'step3.buttonVolume.modeMultiA', 'step3.buttonFan.modeMultiA', 'step3.buttonAc.modeMultiA', isAcButton ? 'step3.buttonAc.modeMultiA' : (isFanButton ? 'step3.buttonFan.modeMultiA' : (isVolumeButton ? 'step3.buttonVolume.modeMultiA' : 'step3.modeMultiA'))],
-                ['step3.modeMultiADesc', 'step3.buttonVolume.modeMultiADesc', 'step3.buttonFan.modeMultiADesc', 'step3.buttonAc.modeMultiADesc', isAcButton ? 'step3.buttonAc.modeMultiADesc' : (isFanButton ? 'step3.buttonFan.modeMultiADesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiADesc' : 'step3.modeMultiADesc'))],
-                ['step3.modeMultiB', 'step3.buttonVolume.modeMultiB', 'step3.buttonFan.modeMultiB', 'step3.buttonAc.modeMultiB', isAcButton ? 'step3.buttonAc.modeMultiB' : (isFanButton ? 'step3.buttonFan.modeMultiB' : (isVolumeButton ? 'step3.buttonVolume.modeMultiB' : 'step3.modeMultiB'))],
-                ['step3.modeMultiBDesc', 'step3.buttonVolume.modeMultiBDesc', 'step3.buttonFan.modeMultiBDesc', 'step3.buttonAc.modeMultiBDesc', isAcButton ? 'step3.buttonAc.modeMultiBDesc' : (isFanButton ? 'step3.buttonFan.modeMultiBDesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiBDesc' : 'step3.modeMultiBDesc'))]
+                ['step3.modeOneBtn', 'step3.buttonVolume.modeOneBtn', 'step3.buttonFan.modeOneBtn', 'step3.buttonAc.modeOneBtn', 'step3.buttonShade.modeOneBtn', isAcButton ? 'step3.buttonAc.modeOneBtn' : (isFanButton ? 'step3.buttonFan.modeOneBtn' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtn' : (isShadeButton ? 'step3.buttonShade.modeOneBtn' : 'step3.modeOneBtn')))],
+                ['step3.modeOneBtnDesc', 'step3.buttonVolume.modeOneBtnDesc', 'step3.buttonFan.modeOneBtnDesc', 'step3.buttonAc.modeOneBtnDesc', 'step3.buttonShade.modeOneBtnDesc', isAcButton ? 'step3.buttonAc.modeOneBtnDesc' : (isFanButton ? 'step3.buttonFan.modeOneBtnDesc' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtnDesc' : (isShadeButton ? 'step3.buttonShade.modeOneBtnDesc' : 'step3.modeOneBtnDesc')))],
+                ['step3.modeMultiA', 'step3.buttonVolume.modeMultiA', 'step3.buttonFan.modeMultiA', 'step3.buttonAc.modeMultiA', 'step3.buttonShade.modeMultiA', isAcButton ? 'step3.buttonAc.modeMultiA' : (isFanButton ? 'step3.buttonFan.modeMultiA' : (isVolumeButton ? 'step3.buttonVolume.modeMultiA' : (isShadeButton ? 'step3.buttonShade.modeMultiA' : 'step3.modeMultiA')))],
+                ['step3.modeMultiADesc', 'step3.buttonVolume.modeMultiADesc', 'step3.buttonFan.modeMultiADesc', 'step3.buttonAc.modeMultiADesc', 'step3.buttonShade.modeMultiADesc', isAcButton ? 'step3.buttonAc.modeMultiADesc' : (isFanButton ? 'step3.buttonFan.modeMultiADesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiADesc' : (isShadeButton ? 'step3.buttonShade.modeMultiADesc' : 'step3.modeMultiADesc')))],
+                ['step3.modeMultiB', 'step3.buttonVolume.modeMultiB', 'step3.buttonFan.modeMultiB', 'step3.buttonAc.modeMultiB', 'step3.buttonShade.modeMultiB', isAcButton ? 'step3.buttonAc.modeMultiB' : (isFanButton ? 'step3.buttonFan.modeMultiB' : (isVolumeButton ? 'step3.buttonVolume.modeMultiB' : (isShadeButton ? 'step3.buttonShade.modeMultiB' : 'step3.modeMultiB')))],
+                ['step3.modeMultiBDesc', 'step3.buttonVolume.modeMultiBDesc', 'step3.buttonFan.modeMultiBDesc', 'step3.buttonAc.modeMultiBDesc', 'step3.buttonShade.modeMultiBDesc', isAcButton ? 'step3.buttonAc.modeMultiBDesc' : (isFanButton ? 'step3.buttonFan.modeMultiBDesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiBDesc' : (isShadeButton ? 'step3.buttonShade.modeMultiBDesc' : 'step3.modeMultiBDesc')))]
             ];
-            copyMap.forEach(([baseKey, volumeKey, fanKey, acKey, nextKey]) => {
-                const el = document.querySelector(`#step3_button [data-i18n="${baseKey}"], #step3_button [data-i18n="${volumeKey}"], #step3_button [data-i18n="${fanKey}"], #step3_button [data-i18n="${acKey}"]`);
+            copyMap.forEach(([baseKey, volumeKey, fanKey, acKey, shadeKey, nextKey]) => {
+                const el = document.querySelector(`#step3_button [data-i18n="${baseKey}"], #step3_button [data-i18n="${volumeKey}"], #step3_button [data-i18n="${fanKey}"], #step3_button [data-i18n="${acKey}"], #step3_button [data-i18n="${shadeKey}"]`);
                 if (!el) return;
                 el.setAttribute('data-i18n', nextKey);
                 el.innerText = t(nextKey);
@@ -4127,24 +4185,25 @@
         function updateButtonStepCopy() {
             const isVolumeButton = selectedPreset === 'button-volume-control';
             const isFanButton = selectedPreset === 'button-fan-control';
+            const isShadeButton = selectedPreset === 'button-shade-control';
             const isFanFixed5 = isFanButton && selectedFanMode === 'fixed5';
             const fanPreviewNoteKey = (isFanButton && selectedFanMode === 'slider100') ? 'step4.buttonFan.sliderStepPreviewNote' : 'step4.buttonFan.stepPreviewNote';
             
             const copyMap = [
-                ['step4.stepAmountTitle', 'step4.buttonVolume.stepAmountTitle', 'step4.buttonFan.stepAmountTitle', isFanButton ? 'step4.buttonFan.stepAmountTitle' : (isVolumeButton ? 'step4.buttonVolume.stepAmountTitle' : 'step4.stepAmountTitle')],
-                ['step4.stepPreviewLabel', 'step4.buttonVolume.stepPreviewLabel', 'step4.buttonFan.stepPreviewLabel', isFanButton ? 'step4.buttonFan.stepPreviewLabel' : (isVolumeButton ? 'step4.buttonVolume.stepPreviewLabel' : 'step4.stepPreviewLabel')],
-                ['step4.stepPreviewNote', 'step4.buttonVolume.stepPreviewNote', 'step4.buttonFan.stepPreviewNote', isFanButton ? fanPreviewNoteKey : (isVolumeButton ? 'step4.buttonVolume.stepPreviewNote' : 'step4.stepPreviewNote')],
-                ['step4.loopModeDesc', 'step4.buttonVolume.loopModeDesc', 'step4.buttonFan.loopModeDesc', isFanButton ? 'step4.buttonFan.loopModeDesc' : (isVolumeButton ? 'step4.buttonVolume.loopModeDesc' : 'step4.loopModeDesc')],
-                ['step4.buttonCaution', 'step4.buttonVolume.caution', 'step4.buttonFan.caution', isFanButton ? 'step4.buttonFan.caution' : (isVolumeButton ? 'step4.buttonVolume.caution' : 'step4.buttonCaution')]
+                ['step4.stepAmountTitle', 'step4.buttonVolume.stepAmountTitle', 'step4.buttonFan.stepAmountTitle', 'step4.buttonShade.stepAmountTitle', isFanButton ? 'step4.buttonFan.stepAmountTitle' : (isVolumeButton ? 'step4.buttonVolume.stepAmountTitle' : (isShadeButton ? 'step4.buttonShade.stepAmountTitle' : 'step4.stepAmountTitle'))],
+                ['step4.stepPreviewLabel', 'step4.buttonVolume.stepPreviewLabel', 'step4.buttonFan.stepPreviewLabel', 'step4.buttonShade.stepPreviewLabel', isFanButton ? 'step4.buttonFan.stepPreviewLabel' : (isVolumeButton ? 'step4.buttonVolume.stepPreviewLabel' : (isShadeButton ? 'step4.buttonShade.stepPreviewLabel' : 'step4.stepPreviewLabel'))],
+                ['step4.stepPreviewNote', 'step4.buttonVolume.stepPreviewNote', 'step4.buttonFan.stepPreviewNote', 'step4.buttonShade.stepPreviewNote', isFanButton ? fanPreviewNoteKey : (isVolumeButton ? 'step4.buttonVolume.stepPreviewNote' : (isShadeButton ? 'step4.buttonShade.stepPreviewNote' : 'step4.stepPreviewNote'))],
+                ['step4.loopModeDesc', 'step4.buttonVolume.loopModeDesc', 'step4.buttonFan.loopModeDesc', 'step4.buttonShade.loopModeDesc', isFanButton ? 'step4.buttonFan.loopModeDesc' : (isVolumeButton ? 'step4.buttonVolume.loopModeDesc' : (isShadeButton ? 'step4.buttonShade.loopModeDesc' : 'step4.loopModeDesc'))],
+                ['step4.buttonCaution', 'step4.buttonVolume.caution', 'step4.buttonFan.caution', 'step4.buttonShade.caution', isFanButton ? 'step4.buttonFan.caution' : (isVolumeButton ? 'step4.buttonVolume.caution' : (isShadeButton ? 'step4.buttonShade.caution' : 'step4.buttonCaution'))]
             ];
-            copyMap.forEach(([baseKey, volumeKey, fanKey, nextKey]) => {
-                const el = document.querySelector(`#step4_button [data-i18n="${baseKey}"], #step4_button [data-i18n="${volumeKey}"], #step4_button [data-i18n="${fanKey}"], #step4_button [data-i18n="step4.buttonFan.sliderStepPreviewNote"]`);
+            copyMap.forEach(([baseKey, volumeKey, fanKey, shadeKey, nextKey]) => {
+                const el = document.querySelector(`#step4_button [data-i18n="${baseKey}"], #step4_button [data-i18n="${volumeKey}"], #step4_button [data-i18n="${fanKey}"], #step4_button [data-i18n="${shadeKey}"], #step4_button [data-i18n="step4.buttonFan.sliderStepPreviewNote"]`);
                 if (!el) return;
                 el.setAttribute('data-i18n', nextKey);
                 el.innerText = t(nextKey);
             });
             const disabledRange = document.querySelector('#step4_button .disabled-setting');
-            if (disabledRange) disabledRange.classList.toggle('hidden', isVolumeButton || isFanButton);
+            if (disabledRange) disabledRange.classList.toggle('hidden', isVolumeButton || isFanButton || isShadeButton);
             const isFanSlider100 = isFanButton && selectedFanMode === 'slider100';
             const unitSwitch = document.getElementById('button_step_unit_switch');
             const stepUi = document.getElementById('button_step_ui');
@@ -4239,7 +4298,9 @@
                     ? 'step2.volumePlaceholder'
                     : selectedPreset === 'button-ac-control'
                         ? 'step2.acPlaceholder'
-                        : 'step2.lightPlaceholder';
+                        : selectedPreset === 'button-shade-control'
+                            ? 'step2.blindPlaceholder'
+                            : 'step2.lightPlaceholder';
             wrapper.innerHTML = `
         <div class="relative flex-1 min-w-0">
             <input type="text" oninput="validateField(this)"
@@ -4428,7 +4489,7 @@
         function validateStep2() {
             let inputsToValidate = [];
             let msgId = 'validationMsg';
-            if (selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control') {
+            if (selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control') {
                 inputsToValidate = [
                     document.getElementById('input_button'),
                     ...getButtonTargetDeviceInputs()
@@ -4586,7 +4647,7 @@
         }
 
         function selectPreset(id) {
-            if (id === 'button-light-control' || id === 'button-volume-control' || id === 'button-fan-control' || id === 'button-ac-control') {
+            if (id === 'button-light-control' || id === 'button-volume-control' || id === 'button-fan-control' || id === 'button-ac-control' || id === 'button-shade-control') {
                 startButtonPreset(id);
             } else {
                 pendingPreset = id;
@@ -4615,7 +4676,7 @@
                 document.getElementById('ac_min').value = '18';
                 document.getElementById('ac_max').value = '30';
             } else {
-                setButtonStepAmount(id === 'button-light-control' ? 25 : 1);
+                setButtonStepAmount(id === 'button-light-control' ? 25 : (id === 'button-shade-control' ? 20 : 1));
             }
             document.getElementById('btn_loop_toggle').checked = false;
             buttonLoopMode = false;
@@ -4648,6 +4709,9 @@
             if (selectedPreset === 'button-volume-control') {
                 const { min, max } = getVolRange();
                 if (Number.isInteger(min) && Number.isInteger(max) && min < max) return { min, max };
+            }
+            if (selectedPreset === 'button-shade-control') {
+                return { min: 0, max: 100 };
             }
             if (selectedPreset === 'button-fan-control') {
                 if (selectedFanMode === 'slider100') {
@@ -5474,6 +5538,115 @@
                     ruleArray.push(createRootBlock("pushed", buildVolumeUpBlocks()));
                 } else if (buttonMode === 'multi_down') {
                     ruleArray.push(createRootBlock("pushed", buildVolumeDownBlocks()));
+                }
+                finalJsonString = formatRuleJson(ruleArray);
+
+            } else if (selectedPreset === 'button-shade-control') {
+                const btnId = document.getElementById('input_button').value.trim() || '@device_button';
+                const compWrap = document.getElementById('component_input_wrap_button');
+                const isCompHidden = compWrap && compWrap.classList.contains('hidden');
+                const rawCompVal = document.getElementById('input_button_component')?.value.trim();
+                const btnCompId = (!isCompHidden && rawCompVal) ? rawCompVal : 'main';
+                const targetShadeIds = getButtonTargetDeviceIds('@device_shade');
+                const sMin = 0;
+                const sMax = 100;
+                const sStep = getEffectiveButtonStepAmount(sMin, sMax);
+                const loop = buttonLoopMode;
+
+                function getShadePoints() {
+                    const points = [sMin];
+                    for (let v = sMin + sStep; v < sMax; v += sStep) points.push(v);
+                    if (points[points.length - 1] !== sMax) points.push(sMax);
+                    return points;
+                }
+
+                function shadeOperand() {
+                    return { "device": { "devices": targetShadeIds, "component": "main", "capability": "windowShadeLevel", "attribute": "shadeLevel", "trigger": "Never" } };
+                }
+
+                function createSetShadeBlock(startVal, endVal, targetVal) {
+                    if (startVal > endVal) return null;
+                    return {
+                        "if": {
+                            "between": {
+                                "value": shadeOperand(),
+                                "start": { "integer": Math.max(0, startVal) },
+                                "end": { "integer": Math.min(100, endVal) }
+                            },
+                            "then": [{ "command": { "devices": targetShadeIds, "commands": [{ "component": "main", "capability": "windowShadeLevel", "command": "setShadeLevel", "arguments": [{ "integer": targetVal }] }] } }]
+                        }
+                    };
+                }
+
+                function createSetShadeCommand(targetVal) {
+                    return [{ "command": { "devices": targetShadeIds, "commands": [{ "component": "main", "capability": "windowShadeLevel", "command": "setShadeLevel", "arguments": [{ "integer": targetVal }] }] } }];
+                }
+
+                // boundaryVal: value to check, targetVal: shadeLevel to set
+                function createShadeBoundaryBlock(type, boundaryVal, targetVal) {
+                    return {
+                        "if": {
+                            [type]: {
+                                "left": shadeOperand(),
+                                "right": { "integer": boundaryVal }
+                            },
+                            "then": createSetShadeCommand(targetVal)
+                        }
+                    };
+                }
+
+                function buildShadeUpBlocks() {
+                    const points = getShadePoints();
+                    const thenBlocks = [];
+                    for (let i = 1; i < points.length; i++) {
+                        const startVal = i === 1 ? sMin : points[i - 2] + 1;
+                        const endVal = points[i - 1];
+                        const block = createSetShadeBlock(startVal, endVal, points[i]);
+                        if (block) thenBlocks.push(block);
+                    }
+                    if (loop) {
+                        thenBlocks.push(createShadeBoundaryBlock("greaterThanOrEquals", sMax, sMin));
+                    }
+                    return thenBlocks;
+                }
+
+                function buildShadeDownBlocks() {
+                    const points = getShadePoints();
+                    const thenBlocks = [];
+                    for (let i = points.length - 1; i > 0; i--) {
+                        const startVal = points[i - 1] + 1;
+                        const endVal = points[i];
+                        const block = createSetShadeBlock(startVal, endVal, points[i - 1]);
+                        if (block) thenBlocks.push(block);
+                    }
+                    if (loop) {
+                        thenBlocks.push(createShadeBoundaryBlock("lessThanOrEquals", sMin, sMax));
+                    }
+                    return thenBlocks;
+                }
+
+                function createRootBlock(eventStr, blocks) {
+                    return {
+                        "if": {
+                            "equals": {
+                                "left": { "string": eventStr },
+                                "right": {
+                                    "device": { "devices": [btnId], "component": btnCompId, "capability": "button", "attribute": "button", "trigger": "Always" }
+                                }
+                            },
+                            "then": blocks
+                        }
+                    };
+                }
+
+                let ruleArray = [];
+                if (buttonMode === 'one_button') {
+                    ruleArray.push(createRootBlock("pushed", buildShadeUpBlocks()));
+                    ruleArray.push(createRootBlock("double", buildShadeDownBlocks()));
+                } else if (buttonMode === 'multi_up') {
+                    ruleArray.push(createRootBlock("pushed", buildShadeUpBlocks()));
+                } else if (buttonMode === 'multi_down') {
+                    ruleArray.push(createRootBlock("pushed", buildShadeDownBlocks()));
                 }
                 finalJsonString = formatRuleJson(ruleArray);
 
