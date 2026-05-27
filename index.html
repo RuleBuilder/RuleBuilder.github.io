@@ -1210,7 +1210,11 @@
             <div id="presetContainer" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 <!-- Preset: Button Light Control -->
                 <div onclick="selectPreset('button-light-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-yellow-400/30 dark:hover:border-yellow-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-yellow-400/30 dark:hover:border-yellow-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
                     <div
                         class="w-14 h-14 bg-yellow-50 dark:bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1231,9 +1235,44 @@
                     </div>
                 </div>
 
+                <!-- Preset: Button Color Control -->
+                <div onclick="selectPreset('button-color-control')" data-device-category="button"
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-rose-400/30 dark:hover:border-rose-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
+                    <div
+                        class="w-14 h-14 bg-rose-50 dark:bg-rose-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.63-.77 1.63-1.7 0-.42-.16-.83-.44-1.14-.29-.32-.46-.74-.46-1.19 0-.93.77-1.68 1.7-1.68h1.72C19.43 16.33 22 13.8 22 10.74c0-4.83-4.49-8.74-10-8.74z" />
+                            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 tracking-tight" data-i18n="preset.buttonColor.title">IoT 버튼으로 조명 컬러 제어</h3>
+                    <p class="text-sm md:text-base text-gray-500 dark:text-zinc-400 leading-relaxed"
+                        data-i18n="preset.buttonColor.desc">버튼을 눌러서 조명 컬러를 단계적으로 제어합니다.</p>
+                    <div
+                        class="mt-6 flex items-center text-rose-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+                        <span data-i18n="preset.select">선택하기</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </div>
+                </div>
+
                 <!-- Preset: Button Color Temperature Control -->
                 <div onclick="selectPreset('button-ct-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-orange-400/30 dark:hover:border-orange-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-orange-400/30 dark:hover:border-orange-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
                     <div
                         class="w-14 h-14 bg-orange-50 dark:bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1256,7 +1295,11 @@
 
                 <!-- Preset: Button Fan Speed Control -->
                 <div onclick="selectPreset('button-fan-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
                     <div
                         class="w-14 h-14 bg-teal-50 dark:bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1279,7 +1322,11 @@
 
                 <!-- Preset: Button Volume Control -->
                 <div onclick="selectPreset('button-volume-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-violet-400/30 dark:hover:border-violet-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-violet-400/30 dark:hover:border-violet-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
                     <div
                         class="w-14 h-14 bg-violet-50 dark:bg-violet-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1296,7 +1343,7 @@
                         data-i18n="preset.buttonVolume.desc">버튼을 눌러서 오디오 볼륨을 단계적으로 제어합니다.</p>
                     <div
                         class="mt-6 flex items-center text-violet-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
-                        <span data-i18n="preset.select">?좏깮?섍린</span>
+                        <span data-i18n="preset.select">선택하기</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1306,7 +1353,11 @@
 
                 <!-- Preset: Button Shade Control -->
                 <div onclick="selectPreset('button-shade-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-emerald-400/30 dark:hover:border-emerald-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-emerald-400/30 dark:hover:border-emerald-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
                     <div
                         class="w-14 h-14 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1329,7 +1380,11 @@
 
                 <!-- Preset: Button AC Control -->
                 <div onclick="selectPreset('button-ac-control')" data-device-category="button"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-sky-400/30 dark:hover:border-sky-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-sky-400/30 dark:hover:border-sky-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-violet-50/90 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-violet-600 dark:text-violet-400 select-none" data-i18n="category.button">
+                        IoT 버튼
+                    </div>
                     <div
                         class="w-14 h-14 bg-sky-50 dark:bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1352,7 +1407,11 @@
 
                 <!-- Preset: Dimmer Control -->
                 <div onclick="selectPreset('dimmer-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-yellow-400/30 dark:hover:border-yellow-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-yellow-400/30 dark:hover:border-yellow-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-yellow-50 dark:bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1376,7 +1435,11 @@
 
                 <!-- Preset: Color Control -->
                 <div onclick="selectPreset('color-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-rose-400/30 dark:hover:border-rose-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-rose-400/30 dark:hover:border-rose-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-rose-50 dark:bg-rose-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1404,7 +1467,11 @@
 
                 <!-- Preset: CT Control -->
                 <div onclick="selectPreset('ct-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-orange-400/30 dark:hover:border-orange-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-orange-400/30 dark:hover:border-orange-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-orange-50 dark:bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1428,7 +1495,11 @@
 
                 <!-- Preset: Fan Speed Control -->
                 <div onclick="selectPreset('fan-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-teal-50 dark:bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1452,7 +1523,11 @@
 
                 <!-- Preset: Volume Control -->
                 <div onclick="selectPreset('volume-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-violet-400/30 dark:hover:border-violet-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-violet-400/30 dark:hover:border-violet-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-violet-50 dark:bg-violet-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1480,7 +1555,11 @@
 
                 <!-- Preset: Blind Control -->
                 <div onclick="selectPreset('blind-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-emerald-400/30 dark:hover:border-emerald-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-emerald-400/30 dark:hover:border-emerald-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1504,7 +1583,11 @@
 
                 <!-- Preset: AC Control -->
                 <div onclick="selectPreset('ac-control')" data-device-category="knob"
-                    class="preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-sky-400/30 dark:hover:border-sky-500/20 group">
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-sky-400/30 dark:hover:border-sky-500/20 group">
+                    <!-- Category Badge -->
+                    <div class="absolute top-5 right-5 px-2.5 py-1 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/25 text-[11px] font-extrabold tracking-wide rounded-full text-amber-600 dark:text-amber-400 select-none" data-i18n="category.knob">
+                        IoT 노브
+                    </div>
                     <div
                         class="w-14 h-14 bg-sky-50 dark:bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2306,7 +2389,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-6 pt-6 border-t border-gray-100 dark:border-white/5">
+                <div id="button_loop_mode_container" class="space-y-6 pt-6 border-t border-gray-100 dark:border-white/5">
                     <div class="flex items-center justify-between">
                         <div>
                             <h4 class="text-lg font-bold tracking-tight" data-i18n="step4.loopModeTitle">루프 모드</h4>
@@ -3365,6 +3448,21 @@
                 "step4.buttonCt.stepPreviewNote": "색온도 스텝의 퍼센트가 작을수록 더 세밀한 색온도를 표현할 수 있지만, 원하는 색온도까지 버튼을 더 많이 눌러야 합니다.",
                 "step4.buttonCt.loopModeDesc": "색온도가 끝까지 바뀌었을 때 한 번 더 누르면 반대쪽의 색온도로 돌아갑니다.",
                 "step4.buttonCt.caution": "버튼을 너무 빠르게 연속으로 누르면 기기 제어가 지연될 수 있으니 약 0.5초~1초 기량 간격을 충분히 두고 여유 있게 눌러주세요.",
+                "step.4buttonColor.title": "컬러 스텝 설정",
+                "preset.buttonColor.title": "IoT 버튼으로 조명 컬러 제어",
+                "preset.buttonColor.desc": "버튼을 눌러서 조명 컬러를 단계적으로 제어합니다.",
+                "step2.cautionColor": "조명이 Switch 및 Color Control 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
+                "step3.buttonColor.modeOneBtn": "눌러서 컬러 차갑거나 따뜻하게 바꾸기",
+                "step3.buttonColor.modeOneBtnDesc": "한 번 눌러서 컬러톤을 차갑게 바꾸고, 두 번 빠르게 눌러서 컬러톤을 따뜻하게 바꾸기",
+                "step3.buttonColor.modeMultiA": "눌러서 컬러 차갑게 바꾸기",
+                "step3.buttonColor.modeMultiADesc": "버튼을 한 번 누를 때마다 컬러톤이 차가워집니다",
+                "step3.buttonColor.modeMultiB": "눌러서 컬러 따뜻하게 바꾸기",
+                "step3.buttonColor.modeMultiBDesc": "버튼을 한 번 누를 때마다 컬러톤이 따뜻해집니다",
+                "step4.buttonColor.stepAmountTitle": "한 번 누를 때마다 바뀌는 컬러 레벨",
+                "step4.buttonColor.stepPreviewLabel": "컬러 스텝 미리보기",
+                "step4.buttonColor.stepPreviewNote": "컬러 스텝의 퍼센트가 작을수록 더 많은 단계의 색상을 표현할 수 있지만, 원하는 색상까지 버튼을 더 많이 눌러야 합니다.",
+                "step4.buttonColor.loopModeDesc": "컬러가 끝까지 바뀌었을 때 한 번 더 누르면 반대쪽의 컬러로 돌아갑니다.",
+                "step4.buttonColor.caution": "버튼을 너무 빠르게 누르면 명령대로 바뀌지 않을 수 있으니 약 0.5초~1초의 간격을 두고 여유 있게 눌러주세요.",
                 "category.button": "IoT 버튼",
             },
             en: {
@@ -3706,6 +3804,21 @@
                 "step4.buttonCt.stepPreviewNote": "Smaller steps give finer color temperature control, but require more button presses.",
                 "step4.buttonCt.loopModeDesc": "When color temperature reaches the end, one more press jumps to the opposite end.",
                 "step4.buttonCt.caution": "Pressing the button too quickly in succession may cause control delay. Please leave about 0.5 to 1 second between presses.",
+                "step.4buttonColor.title": "Color Step Setting",
+                "preset.buttonColor.title": "Control Light Color with IoT Button",
+                "preset.buttonColor.desc": "Press the button to adjust light color in steps",
+                "step2.cautionColor": "Make sure your light supports Switch and Color Control capabilities. (Check details in SmartThings App)",
+                "step3.buttonColor.modeOneBtn": "Press to make color cooler or warmer",
+                "step3.buttonColor.modeOneBtnDesc": "Press once to make color tone cooler, and double press quickly to make color tone warmer",
+                "step3.buttonColor.modeMultiA": "Press to make color cooler",
+                "step3.buttonColor.modeMultiADesc": "The color tone gets cooler each time you press the button",
+                "step3.buttonColor.modeMultiB": "Press to make color warmer",
+                "step3.buttonColor.modeMultiBDesc": "The color tone gets warmer each time you press the button",
+                "step4.buttonColor.stepAmountTitle": "Color level per press",
+                "step4.buttonColor.stepPreviewLabel": "Color Step Preview",
+                "step4.buttonColor.stepPreviewNote": "A smaller color step can express more color levels, but you will need to press the button more times to reach the color you want.",
+                "step4.buttonColor.loopModeDesc": "When the color reaches the end, one more press loops it to the opposite end.",
+                "step4.buttonColor.caution": "If you press too quickly, commands may not run as expected. Leave about 0.5 to 1 second between presses.",
                 "category.button": "Button",
             }
         };
@@ -3765,6 +3878,7 @@
             if (preset === 'button-fan-control') return ['step1', 'step2_button', 'step3_fan', 'step3_button', 'step4_button', 'step4', 'step5'];
             if (preset === 'button-ac-control') return ['step1', 'step2_button', 'step3_button', 'step3_ac', 'step4_button_ac', 'step4', 'step5'];
             if (preset === 'button-ct-control') return ['step1', 'step2_button', 'step3_button', 'step3', 'step4_button', 'step4', 'step5'];
+            if (preset === 'button-color-control') return ['step1', 'step2_button', 'step3_button', 'step3_color', 'step4_button', 'step4', 'step5'];
             return ['step1', 'step2', 'step4', 'step5']; // dimmer-control (no step3)
         }
 
@@ -3777,6 +3891,7 @@
             if (preset === 'button-fan-control') return [...base, t('step.2button.title'), t('step.3fan.title'), t('step.3button.title'), t('step4.buttonFan.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-ac-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3ac.title'), t('step.4buttonAc.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'button-ct-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3.title'), t('step.4buttonCt.title'), t('step.4.title'), t('step.5.title')];
+            if (preset === 'button-color-control') return [...base, t('step.2button.title'), t('step.3button.title'), t('step.3color.title'), t('step.4buttonColor.title'), t('step.4.title'), t('step.5.title')];
             
             const base2 = [t('step.1.title'), t('step.2.title')];
             if (preset === 'ct-control') return [...base2, t('step.3.title'), t('step.4.title'), t('step.5.title')];
@@ -3944,12 +4059,12 @@
             // AC button step preview
             if (selectedPreset === 'button-ac-control' && targetId === 'step4_button_ac') updateButtonAcStepPreview();
             // Color preview when on step3_color
-            if (selectedPreset === 'color-control' && targetId === 'step3_color') selectSaturation(selectedSaturation);
+            if ((selectedPreset === 'color-control' || selectedPreset === 'button-color-control') && targetId === 'step3_color') selectSaturation(selectedSaturation);
             if (targetId === 'step3_fan') selectFanMode(selectedFanMode);
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control') && targetId === 'step2_button') updateButtonTargetCopy();
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control') && targetId === 'step3_button') updateButtonModeCopy();
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control' || selectedPreset === 'button-color-control') && targetId === 'step2_button') updateButtonTargetCopy();
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control' || selectedPreset === 'button-color-control') && targetId === 'step3_button') updateButtonModeCopy();
 
-            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control') && targetId === 'step4_button') {
+            if ((selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control' || selectedPreset === 'button-color-control') && targetId === 'step4_button') {
                 updateButtonStepCopy();
                 updateButtonStepPreview();
             }
@@ -4191,13 +4306,14 @@
             const isAcButton = selectedPreset === 'button-ac-control';
             const isShadeButton = selectedPreset === 'button-shade-control';
             const isCtButton = selectedPreset === 'button-ct-control';
+            const isColorButton = selectedPreset === 'button-color-control';
             const labelKey = isAcButton ? 'step2.acLabel' : (isFanButton ? 'step2.fanLabel' : (isVolumeButton ? 'step2.volumeLabel' : (isShadeButton ? 'step2.blindLabel' : 'step2.lightLabel')));
             const tipKey = isAcButton ? 'step2.acTip' : (isFanButton ? 'step2.fanTip' : (isVolumeButton ? 'step2.volumeTip' : (isShadeButton ? 'step2.blindTip' : 'step2.lightTip')));
             const placeholderKey = isAcButton ? 'step2.acPlaceholder' : (isFanButton ? 'step2.fanPlaceholder' : (isVolumeButton ? 'step2.volumePlaceholder' : (isShadeButton ? 'step2.blindPlaceholder' : 'step2.lightPlaceholder')));
-            const cautionKey = isAcButton ? 'step2.cautionAc' : (isFanButton ? 'step2.cautionFan' : (isVolumeButton ? 'step2.cautionVolume' : (isShadeButton ? 'step2.cautionButtonShade' : (isCtButton ? 'step2.cautionCt' : 'step2.caution3'))));
+            const cautionKey = isAcButton ? 'step2.cautionAc' : (isFanButton ? 'step2.cautionFan' : (isVolumeButton ? 'step2.cautionVolume' : (isShadeButton ? 'step2.cautionButtonShade' : (isCtButton ? 'step2.cautionCt' : (isColorButton ? 'step2.cautionColor' : 'step2.caution3')))));
             const label = document.querySelector('#step2_button [data-i18n="step2.lightLabel"], #step2_button [data-i18n="step2.volumeLabel"], #step2_button [data-i18n="step2.fanLabel"], #step2_button [data-i18n="step2.acLabel"], #step2_button [data-i18n="step2.blindLabel"]');
             const tip = document.querySelector('#step2_button [data-i18n="step2.lightTip"], #step2_button [data-i18n="step2.volumeTip"], #step2_button [data-i18n="step2.fanTip"], #step2_button [data-i18n="step2.acTip"], #step2_button [data-i18n="step2.blindTip"]');
-            const caution = document.querySelector('#step2_button [data-i18n="step2.caution3"], #step2_button [data-i18n="step2.cautionVolume"], #step2_button [data-i18n="step2.cautionFan"], #step2_button [data-i18n="step2.cautionAc"], #step2_button [data-i18n="step2.cautionButtonShade"], #step2_button [data-i18n="step2.cautionCt"]');
+            const caution = document.querySelector('#step2_button [data-i18n="step2.caution3"], #step2_button [data-i18n="step2.cautionVolume"], #step2_button [data-i18n="step2.cautionFan"], #step2_button [data-i18n="step2.cautionAc"], #step2_button [data-i18n="step2.cautionButtonShade"], #step2_button [data-i18n="step2.cautionCt"], #step2_button [data-i18n="step2.cautionColor"]');
 
             if (label) {
                 label.setAttribute('data-i18n', labelKey);
@@ -4223,16 +4339,17 @@
             const isAcButton = selectedPreset === 'button-ac-control';
             const isShadeButton = selectedPreset === 'button-shade-control';
             const isCtButton = selectedPreset === 'button-ct-control';
+            const isColorButton = selectedPreset === 'button-color-control';
             const copyMap = [
-                ['step3.modeOneBtn', 'step3.buttonVolume.modeOneBtn', 'step3.buttonFan.modeOneBtn', 'step3.buttonAc.modeOneBtn', 'step3.buttonShade.modeOneBtn', 'step3.buttonCt.modeOneBtn', isAcButton ? 'step3.buttonAc.modeOneBtn' : (isFanButton ? 'step3.buttonFan.modeOneBtn' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtn' : (isShadeButton ? 'step3.buttonShade.modeOneBtn' : (isCtButton ? 'step3.buttonCt.modeOneBtn' : 'step3.modeOneBtn'))))],
-                ['step3.modeOneBtnDesc', 'step3.buttonVolume.modeOneBtnDesc', 'step3.buttonFan.modeOneBtnDesc', 'step3.buttonAc.modeOneBtnDesc', 'step3.buttonShade.modeOneBtnDesc', 'step3.buttonCt.modeOneBtnDesc', isAcButton ? 'step3.buttonAc.modeOneBtnDesc' : (isFanButton ? 'step3.buttonFan.modeOneBtnDesc' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtnDesc' : (isShadeButton ? 'step3.buttonShade.modeOneBtnDesc' : (isCtButton ? 'step3.buttonCt.modeOneBtnDesc' : 'step3.modeOneBtnDesc'))))],
-                ['step3.modeMultiA', 'step3.buttonVolume.modeMultiA', 'step3.buttonFan.modeMultiA', 'step3.buttonAc.modeMultiA', 'step3.buttonShade.modeMultiA', 'step3.buttonCt.modeMultiA', isAcButton ? 'step3.buttonAc.modeMultiA' : (isFanButton ? 'step3.buttonFan.modeMultiA' : (isVolumeButton ? 'step3.buttonVolume.modeMultiA' : (isShadeButton ? 'step3.buttonShade.modeMultiA' : (isCtButton ? 'step3.buttonCt.modeMultiA' : 'step3.modeMultiA'))))],
-                ['step3.modeMultiADesc', 'step3.buttonVolume.modeMultiADesc', 'step3.buttonFan.modeMultiADesc', 'step3.buttonAc.modeMultiADesc', 'step3.buttonShade.modeMultiADesc', 'step3.buttonCt.modeMultiADesc', isAcButton ? 'step3.buttonAc.modeMultiADesc' : (isFanButton ? 'step3.buttonFan.modeMultiADesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiADesc' : (isShadeButton ? 'step3.buttonShade.modeMultiADesc' : (isCtButton ? 'step3.buttonCt.modeMultiADesc' : 'step3.modeMultiADesc'))))],
-                ['step3.modeMultiB', 'step3.buttonVolume.modeMultiB', 'step3.buttonFan.modeMultiB', 'step3.buttonAc.modeMultiB', 'step3.buttonShade.modeMultiB', 'step3.buttonCt.modeMultiB', isAcButton ? 'step3.buttonAc.modeMultiB' : (isFanButton ? 'step3.buttonFan.modeMultiB' : (isVolumeButton ? 'step3.buttonVolume.modeMultiB' : (isShadeButton ? 'step3.buttonShade.modeMultiB' : (isCtButton ? 'step3.buttonCt.modeMultiB' : 'step3.modeMultiB'))))],
-                ['step3.modeMultiBDesc', 'step3.buttonVolume.modeMultiBDesc', 'step3.buttonFan.modeMultiBDesc', 'step3.buttonAc.modeMultiBDesc', 'step3.buttonShade.modeMultiBDesc', 'step3.buttonCt.modeMultiBDesc', isAcButton ? 'step3.buttonAc.modeMultiBDesc' : (isFanButton ? 'step3.buttonFan.modeMultiBDesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiBDesc' : (isShadeButton ? 'step3.buttonShade.modeMultiBDesc' : (isCtButton ? 'step3.buttonCt.modeMultiBDesc' : 'step3.modeMultiBDesc'))))]
+                ['step3.modeOneBtn', 'step3.buttonVolume.modeOneBtn', 'step3.buttonFan.modeOneBtn', 'step3.buttonAc.modeOneBtn', 'step3.buttonShade.modeOneBtn', 'step3.buttonCt.modeOneBtn', 'step3.buttonColor.modeOneBtn', isAcButton ? 'step3.buttonAc.modeOneBtn' : (isFanButton ? 'step3.buttonFan.modeOneBtn' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtn' : (isShadeButton ? 'step3.buttonShade.modeOneBtn' : (isCtButton ? 'step3.buttonCt.modeOneBtn' : (isColorButton ? 'step3.buttonColor.modeOneBtn' : 'step3.modeOneBtn')))))],
+                ['step3.modeOneBtnDesc', 'step3.buttonVolume.modeOneBtnDesc', 'step3.buttonFan.modeOneBtnDesc', 'step3.buttonAc.modeOneBtnDesc', 'step3.buttonShade.modeOneBtnDesc', 'step3.buttonCt.modeOneBtnDesc', 'step3.buttonColor.modeOneBtnDesc', isAcButton ? 'step3.buttonAc.modeOneBtnDesc' : (isFanButton ? 'step3.buttonFan.modeOneBtnDesc' : (isVolumeButton ? 'step3.buttonVolume.modeOneBtnDesc' : (isShadeButton ? 'step3.buttonShade.modeOneBtnDesc' : (isCtButton ? 'step3.buttonCt.modeOneBtnDesc' : (isColorButton ? 'step3.buttonColor.modeOneBtnDesc' : 'step3.modeOneBtnDesc')))))],
+                ['step3.modeMultiA', 'step3.buttonVolume.modeMultiA', 'step3.buttonFan.modeMultiA', 'step3.buttonAc.modeMultiA', 'step3.buttonShade.modeMultiA', 'step3.buttonCt.modeMultiA', 'step3.buttonColor.modeMultiA', isAcButton ? 'step3.buttonAc.modeMultiA' : (isFanButton ? 'step3.buttonFan.modeMultiA' : (isVolumeButton ? 'step3.buttonVolume.modeMultiA' : (isShadeButton ? 'step3.buttonShade.modeMultiA' : (isCtButton ? 'step3.buttonCt.modeMultiA' : (isColorButton ? 'step3.buttonColor.modeMultiA' : 'step3.modeMultiA')))))],
+                ['step3.modeMultiADesc', 'step3.buttonVolume.modeMultiADesc', 'step3.buttonFan.modeMultiADesc', 'step3.buttonAc.modeMultiADesc', 'step3.buttonShade.modeMultiADesc', 'step3.buttonCt.modeMultiADesc', 'step3.buttonColor.modeMultiADesc', isAcButton ? 'step3.buttonAc.modeMultiADesc' : (isFanButton ? 'step3.buttonFan.modeMultiADesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiADesc' : (isShadeButton ? 'step3.buttonShade.modeMultiADesc' : (isCtButton ? 'step3.buttonCt.modeMultiADesc' : (isColorButton ? 'step3.buttonColor.modeMultiADesc' : 'step3.modeMultiADesc')))))],
+                ['step3.modeMultiB', 'step3.buttonVolume.modeMultiB', 'step3.buttonFan.modeMultiB', 'step3.buttonAc.modeMultiB', 'step3.buttonShade.modeMultiB', 'step3.buttonCt.modeMultiB', 'step3.buttonColor.modeMultiB', isAcButton ? 'step3.buttonAc.modeMultiB' : (isFanButton ? 'step3.buttonFan.modeMultiB' : (isVolumeButton ? 'step3.buttonVolume.modeMultiB' : (isShadeButton ? 'step3.buttonShade.modeMultiB' : (isCtButton ? 'step3.buttonCt.modeMultiB' : (isColorButton ? 'step3.buttonColor.modeMultiB' : 'step3.modeMultiB')))))],
+                ['step3.modeMultiBDesc', 'step3.buttonVolume.modeMultiBDesc', 'step3.buttonFan.modeMultiBDesc', 'step3.buttonAc.modeMultiBDesc', 'step3.buttonShade.modeMultiBDesc', 'step3.buttonCt.modeMultiBDesc', 'step3.buttonColor.modeMultiBDesc', isAcButton ? 'step3.buttonAc.modeMultiBDesc' : (isFanButton ? 'step3.buttonFan.modeMultiBDesc' : (isVolumeButton ? 'step3.buttonVolume.modeMultiBDesc' : (isShadeButton ? 'step3.buttonShade.modeMultiBDesc' : (isCtButton ? 'step3.buttonCt.modeMultiBDesc' : (isColorButton ? 'step3.buttonColor.modeMultiBDesc' : 'step3.modeMultiBDesc')))))]
             ];
-            copyMap.forEach(([baseKey, volumeKey, fanKey, acKey, shadeKey, ctKey, nextKey]) => {
-                const el = document.querySelector(`#step3_button [data-i18n="${baseKey}"], #step3_button [data-i18n="${volumeKey}"], #step3_button [data-i18n="${fanKey}"], #step3_button [data-i18n="${acKey}"], #step3_button [data-i18n="${shadeKey}"], #step3_button [data-i18n="${ctKey}"]`);
+            copyMap.forEach(([baseKey, volumeKey, fanKey, acKey, shadeKey, ctKey, colorKey, nextKey]) => {
+                const el = document.querySelector(`#step3_button [data-i18n="${baseKey}"], #step3_button [data-i18n="${volumeKey}"], #step3_button [data-i18n="${fanKey}"], #step3_button [data-i18n="${acKey}"], #step3_button [data-i18n="${shadeKey}"], #step3_button [data-i18n="${ctKey}"], #step3_button [data-i18n="${colorKey}"]`);
                 if (!el) return;
                 el.setAttribute('data-i18n', nextKey);
                 el.innerText = t(nextKey);
@@ -4244,24 +4361,25 @@
             const isFanButton = selectedPreset === 'button-fan-control';
             const isShadeButton = selectedPreset === 'button-shade-control';
             const isCtButton = selectedPreset === 'button-ct-control';
+            const isColorButton = selectedPreset === 'button-color-control';
             const isFanFixed5 = isFanButton && selectedFanMode === 'fixed5';
             const fanPreviewNoteKey = (isFanButton && selectedFanMode === 'slider100') ? 'step4.buttonFan.sliderStepPreviewNote' : 'step4.buttonFan.stepPreviewNote';
             
             const copyMap = [
-                ['step4.stepAmountTitle', 'step4.buttonVolume.stepAmountTitle', 'step4.buttonFan.stepAmountTitle', 'step4.buttonShade.stepAmountTitle', 'step4.buttonCt.stepAmountTitle', isFanButton ? 'step4.buttonFan.stepAmountTitle' : (isVolumeButton ? 'step4.buttonVolume.stepAmountTitle' : (isShadeButton ? 'step4.buttonShade.stepAmountTitle' : (isCtButton ? 'step4.buttonCt.stepAmountTitle' : 'step4.stepAmountTitle')))],
-                ['step4.stepPreviewLabel', 'step4.buttonVolume.stepPreviewLabel', 'step4.buttonFan.stepPreviewLabel', 'step4.buttonShade.stepPreviewLabel', 'step4.buttonCt.stepPreviewLabel', isFanButton ? 'step4.buttonFan.stepPreviewLabel' : (isVolumeButton ? 'step4.buttonVolume.stepPreviewLabel' : (isShadeButton ? 'step4.buttonShade.stepPreviewLabel' : (isCtButton ? 'step4.buttonCt.stepPreviewLabel' : 'step4.stepPreviewLabel')))],
-                ['step4.stepPreviewNote', 'step4.buttonVolume.stepPreviewNote', 'step4.buttonFan.stepPreviewNote', 'step4.buttonShade.stepPreviewNote', 'step4.buttonCt.stepPreviewNote', isFanButton ? fanPreviewNoteKey : (isVolumeButton ? 'step4.buttonVolume.stepPreviewNote' : (isShadeButton ? 'step4.buttonShade.stepPreviewNote' : (isCtButton ? 'step4.buttonCt.stepPreviewNote' : 'step4.stepPreviewNote')))],
-                ['step4.loopModeDesc', 'step4.buttonVolume.loopModeDesc', 'step4.buttonFan.loopModeDesc', 'step4.buttonShade.loopModeDesc', 'step4.buttonCt.loopModeDesc', isFanButton ? 'step4.buttonFan.loopModeDesc' : (isVolumeButton ? 'step4.buttonVolume.loopModeDesc' : (isShadeButton ? 'step4.buttonShade.loopModeDesc' : (isCtButton ? 'step4.buttonCt.loopModeDesc' : 'step4.loopModeDesc')))],
-                ['step4.buttonCaution', 'step4.buttonVolume.caution', 'step4.buttonFan.caution', 'step4.buttonShade.caution', 'step4.buttonCt.caution', isFanButton ? 'step4.buttonFan.caution' : (isVolumeButton ? 'step4.buttonVolume.caution' : (isShadeButton ? 'step4.buttonShade.caution' : (isCtButton ? 'step4.buttonCt.caution' : 'step4.buttonCaution')))]
+                ['step4.stepAmountTitle', 'step4.buttonVolume.stepAmountTitle', 'step4.buttonFan.stepAmountTitle', 'step4.buttonShade.stepAmountTitle', 'step4.buttonCt.stepAmountTitle', 'step4.buttonColor.stepAmountTitle', isFanButton ? 'step4.buttonFan.stepAmountTitle' : (isVolumeButton ? 'step4.buttonVolume.stepAmountTitle' : (isShadeButton ? 'step4.buttonShade.stepAmountTitle' : (isCtButton ? 'step4.buttonCt.stepAmountTitle' : (isColorButton ? 'step4.buttonColor.stepAmountTitle' : 'step4.stepAmountTitle'))))],
+                ['step4.stepPreviewLabel', 'step4.buttonVolume.stepPreviewLabel', 'step4.buttonFan.stepPreviewLabel', 'step4.buttonShade.stepPreviewLabel', 'step4.buttonCt.stepPreviewLabel', 'step4.buttonColor.stepPreviewLabel', isFanButton ? 'step4.buttonFan.stepPreviewLabel' : (isVolumeButton ? 'step4.buttonVolume.stepPreviewLabel' : (isShadeButton ? 'step4.buttonShade.stepPreviewLabel' : (isCtButton ? 'step4.buttonCt.stepPreviewLabel' : (isColorButton ? 'step4.buttonColor.stepPreviewLabel' : 'step4.stepPreviewLabel'))))],
+                ['step4.stepPreviewNote', 'step4.buttonVolume.stepPreviewNote', 'step4.buttonFan.stepPreviewNote', 'step4.buttonShade.stepPreviewNote', 'step4.buttonCt.stepPreviewNote', 'step4.buttonColor.stepPreviewNote', isFanButton ? fanPreviewNoteKey : (isVolumeButton ? 'step4.buttonVolume.stepPreviewNote' : (isShadeButton ? 'step4.buttonShade.stepPreviewNote' : (isCtButton ? 'step4.buttonCt.stepPreviewNote' : (isColorButton ? 'step4.buttonColor.stepPreviewNote' : 'step4.stepPreviewNote'))))],
+                ['step4.loopModeDesc', 'step4.buttonVolume.loopModeDesc', 'step4.buttonFan.loopModeDesc', 'step4.buttonShade.loopModeDesc', 'step4.buttonCt.loopModeDesc', 'step4.buttonColor.loopModeDesc', isFanButton ? 'step4.buttonFan.loopModeDesc' : (isVolumeButton ? 'step4.buttonVolume.loopModeDesc' : (isShadeButton ? 'step4.buttonShade.loopModeDesc' : (isCtButton ? 'step4.buttonCt.loopModeDesc' : (isColorButton ? 'step4.buttonColor.loopModeDesc' : 'step4.loopModeDesc'))))],
+                ['step4.buttonCaution', 'step4.buttonVolume.caution', 'step4.buttonFan.caution', 'step4.buttonShade.caution', 'step4.buttonCt.caution', 'step4.buttonColor.caution', isFanButton ? 'step4.buttonFan.caution' : (isVolumeButton ? 'step4.buttonVolume.caution' : (isShadeButton ? 'step4.buttonShade.caution' : (isCtButton ? 'step4.buttonCt.caution' : (isColorButton ? 'step4.buttonColor.caution' : 'step4.buttonCaution'))))]
             ];
-            copyMap.forEach(([baseKey, volumeKey, fanKey, shadeKey, ctKey, nextKey]) => {
-                const el = document.querySelector(`#step4_button [data-i18n="${baseKey}"], #step4_button [data-i18n="${volumeKey}"], #step4_button [data-i18n="${fanKey}"], #step4_button [data-i18n="${shadeKey}"], #step4_button [data-i18n="${ctKey}"], #step4_button [data-i18n="step4.buttonFan.sliderStepPreviewNote"]`);
+            copyMap.forEach(([baseKey, volumeKey, fanKey, shadeKey, ctKey, colorKey, nextKey]) => {
+                const el = document.querySelector(`#step4_button [data-i18n="${baseKey}"], #step4_button [data-i18n="${volumeKey}"], #step4_button [data-i18n="${fanKey}"], #step4_button [data-i18n="${shadeKey}"], #step4_button [data-i18n="${ctKey}"], #step4_button [data-i18n="${colorKey}"], #step4_button [data-i18n="step4.buttonFan.sliderStepPreviewNote"]`);
                 if (!el) return;
                 el.setAttribute('data-i18n', nextKey);
                 el.innerText = t(nextKey);
             });
             const disabledRange = document.querySelector('#step4_button .disabled-setting');
-            if (disabledRange) disabledRange.classList.toggle('hidden', isVolumeButton || isFanButton || isShadeButton || isCtButton);
+            if (disabledRange) disabledRange.classList.toggle('hidden', isVolumeButton || isFanButton || isShadeButton || isCtButton || isColorButton);
             const isFanSlider100 = isFanButton && selectedFanMode === 'slider100';
             const unitSwitch = document.getElementById('button_step_unit_switch');
             const stepUi = document.getElementById('button_step_ui');
@@ -4293,6 +4411,21 @@
             });
             syncButtonStepUnitUI();
             updateButtonStepAmount();
+
+            // Handle loop mode container disable/lock state dynamically for button-color-control
+            const loopContainer = document.getElementById('button_loop_mode_container');
+            const loopToggle = document.getElementById('btn_loop_toggle');
+            if (loopContainer && loopToggle) {
+                if (isColorButton) {
+                    loopContainer.classList.add('opacity-50', 'pointer-events-none');
+                    loopToggle.disabled = true;
+                    loopToggle.checked = true;
+                    buttonLoopMode = true;
+                } else {
+                    loopContainer.classList.remove('opacity-50', 'pointer-events-none');
+                    loopToggle.disabled = false;
+                }
+            }
         }
 
         function getTargetDeviceInputs() {
@@ -4547,7 +4680,7 @@
         function validateStep2() {
             let inputsToValidate = [];
             let msgId = 'validationMsg';
-            if (selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control') {
+            if (selectedPreset === 'button-light-control' || selectedPreset === 'button-volume-control' || selectedPreset === 'button-fan-control' || selectedPreset === 'button-ac-control' || selectedPreset === 'button-shade-control' || selectedPreset === 'button-ct-control' || selectedPreset === 'button-color-control') {
                 inputsToValidate = [
                     document.getElementById('input_button'),
                     ...getButtonTargetDeviceInputs()
@@ -4705,7 +4838,7 @@
         }
 
         function selectPreset(id) {
-            if (id === 'button-light-control' || id === 'button-volume-control' || id === 'button-fan-control' || id === 'button-ac-control' || id === 'button-shade-control' || id === 'button-ct-control') {
+            if (id === 'button-light-control' || id === 'button-volume-control' || id === 'button-fan-control' || id === 'button-ac-control' || id === 'button-shade-control' || id === 'button-ct-control' || id === 'button-color-control') {
                 startButtonPreset(id);
             } else {
                 pendingPreset = id;
@@ -4738,11 +4871,19 @@
                 document.getElementById('ct_max').value = '4000';
                 updateCTPreview();
                 setButtonStepAmount(360); // 20% of (4000 - 2200) relative unit
+            } else if (id === 'button-color-control') {
+                selectedSaturation = 'all';
+                setButtonStepAmount(20); // 5 steps default: 20% per step
             } else {
                 setButtonStepAmount(id === 'button-light-control' ? 25 : (id === 'button-shade-control' ? 20 : 1));
             }
-            document.getElementById('btn_loop_toggle').checked = false;
-            buttonLoopMode = false;
+            if (id === 'button-color-control') {
+                document.getElementById('btn_loop_toggle').checked = true;
+                buttonLoopMode = true;
+            } else {
+                document.getElementById('btn_loop_toggle').checked = false;
+                buttonLoopMode = false;
+            }
             document.getElementById('btn_ac_loop_toggle').checked = false;
             buttonAcLoopMode = false;
             updateButtonTargetCopy();
@@ -4785,6 +4926,9 @@
             if (selectedPreset === 'button-ct-control') {
                 const { min, max } = getCTRange();
                 if (Number.isInteger(min) && Number.isInteger(max) && min < max) return { min, max };
+            }
+            if (selectedPreset === 'button-color-control') {
+                return { min: 2, max: buttonMode === 'one_button' ? 99 : 100 };
             }
             return {
                 min: parseInt(document.getElementById('btn_min')?.value, 10) || 1,
@@ -6135,6 +6279,129 @@
                     ruleArray.push(createRootBlock("pushed", buildCTUpBlocks()));
                 } else if (buttonMode === 'multi_down') {
                     ruleArray.push(createRootBlock("pushed", buildCTDownBlocks()));
+                }
+                finalJsonString = formatRuleJson(ruleArray);
+
+            } else if (selectedPreset === 'button-color-control') {
+                const btnId = document.getElementById('input_button').value.trim() || '@device_button';
+                const compWrap = document.getElementById('component_input_wrap_button');
+                const isCompHidden = compWrap && compWrap.classList.contains('hidden');
+                const rawCompVal = document.getElementById('input_button_component')?.value.trim();
+                const btnCompId = (!isCompHidden && rawCompVal) ? rawCompVal : 'main';
+                const targetLightIds = getButtonTargetDeviceIds('@device_light');
+                const bMin = 2;
+                const bMax = 100;
+                const bStep = getEffectiveButtonStepAmount(bMin, bMax);
+                const loop = buttonLoopMode;
+
+                function colorLevelOperand() {
+                    return { "device": { "devices": targetLightIds, "component": "main", "capability": "colorControl", "attribute": "hue", "trigger": "Never" } };
+                }
+
+                function createSetColorBlock(startVal, endVal, targetVal) {
+                    if (startVal > endVal) return null;
+                    const commands = [];
+                    if (selectedSaturation === 'all') {
+                        commands.push({
+                            "component": "main",
+                            "capability": "colorControl",
+                            "command": "setHue",
+                            "arguments": [{ "integer": targetVal }]
+                        });
+                    } else {
+                        commands.push({
+                            "component": "main",
+                            "capability": "colorControl",
+                            "command": "setColor",
+                            "arguments": [{
+                                "map": {
+                                    "hue": { "integer": targetVal },
+                                    "saturation": { "integer": Number(selectedSaturation) }
+                                }
+                            }]
+                        });
+                    }
+                    return {
+                        "if": {
+                            "between": {
+                                "value": colorLevelOperand(),
+                                "start": { "integer": startVal }, "end": { "integer": endVal }
+                            },
+                            "then": [{ "command": { "devices": targetLightIds, "commands": commands } }]
+                        }
+                    };
+                }
+
+                function getAscendingColorPoints() {
+                    const points = [bMin];
+                    for (let v = bMin + bStep; v < bMax; v += bStep) points.push(v);
+                    if (points[points.length - 1] !== bMax) points.push(bMax);
+                    return points;
+                }
+
+                function getDescendingColorPoints() {
+                    const points = [bMax];
+                    for (let v = bMax - bStep; v > bMin; v -= bStep) points.push(v);
+                    if (points[points.length - 1] !== bMin) points.push(bMin);
+                    return points;
+                }
+
+                function buildColorUpBlocks() {
+                    const points = getAscendingColorPoints();
+                    const thenBlocks = [];
+                    for (let i = 1; i < points.length; i++) {
+                        const startVal = i === 1 ? bMin : points[i - 2] + 1;
+                        const endVal = points[i - 1];
+                        const block = createSetColorBlock(startVal, endVal, points[i]);
+                        if (block) thenBlocks.push(block);
+                    }
+                    if (loop) {
+                        const loopStart = points.length > 1 ? points[points.length - 2] + 1 : bMin;
+                        const block = createSetColorBlock(loopStart, bMax, bMin);
+                        if (block) thenBlocks.push(block);
+                    }
+                    return thenBlocks;
+                }
+
+                function buildColorDownBlocks() {
+                    const points = getDescendingColorPoints();
+                    const thenBlocks = [];
+                    for (let i = 1; i < points.length; i++) {
+                        const startVal = points[i - 1];
+                        const endVal = i === 1 ? bMax : points[i - 2] - 1;
+                        const block = createSetColorBlock(startVal, endVal, points[i]);
+                        if (block) thenBlocks.push(block);
+                    }
+                    if (loop) {
+                        const loopEnd = points.length > 1 ? points[points.length - 2] - 1 : bMax;
+                        const block = createSetColorBlock(bMin, loopEnd, bMax);
+                        if (block) thenBlocks.push(block);
+                    }
+                    return thenBlocks;
+                }
+
+                function createRootBlock(eventStr, blocks) {
+                    return {
+                        "if": {
+                            "equals": {
+                                "left": { "string": eventStr },
+                                "right": {
+                                    "device": { "devices": [btnId], "component": btnCompId, "capability": "button", "attribute": "button", "trigger": "Always" }
+                                }
+                            },
+                            "then": blocks
+                        }
+                    };
+                }
+
+                let ruleArray = [];
+                if (buttonMode === 'one_button') {
+                    ruleArray.push(createRootBlock("pushed", buildColorUpBlocks()));
+                    ruleArray.push(createRootBlock("double", buildColorDownBlocks()));
+                } else if (buttonMode === 'multi_up') {
+                    ruleArray.push(createRootBlock("pushed", buildColorUpBlocks()));
+                } else if (buttonMode === 'multi_down') {
+                    ruleArray.push(createRootBlock("pushed", buildColorDownBlocks()));
                 }
                 finalJsonString = formatRuleJson(ruleArray);
 
