@@ -2962,6 +2962,24 @@
 
     </main>
 
+    <!-- ==================== TAB NAVIGATION (ONLY SHOWN IN STEP 1) ==================== -->
+    <div id="tabNavBar" class="nav-glass fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-around w-[90%] max-w-md py-3 px-6 rounded-2xl border border-gray-200/50 dark:border-white/10 shadow-lg z-[99] transition-all duration-300">
+        <a href="./index.html" class="flex flex-col items-center gap-1 text-blue-500 dark:text-blue-400 font-bold text-[12px] group transition-all">
+            <svg class="w-6 h-6 text-[#008DF7] group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+            </svg>
+            <span data-i18n="tab.routine">루틴</span>
+        </a>
+        <a href="./shoutouts/index.html" class="flex flex-col items-center gap-1 text-gray-400 dark:text-zinc-500 hover:text-[#008DF7] dark:hover:text-[#008DF7] font-medium text-[12px] group transition-all">
+            <svg class="w-6 h-6 text-gray-400 dark:text-zinc-500 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.048 8.287 8.287 0 0 0 9 9.6a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1A3.75 3.75 0 0 0 12 18z" />
+            </svg>
+            <span data-i18n="tab.shoutouts">샤라웃</span>
+        </a>
+    </div>
+
     <!-- ==================== NAV FOOTER ==================== -->
     <footer id="navFooter" class="nav-glass fixed bottom-0 left-0 right-0 border-t px-5 md:px-8 py-4 hidden z-50">
         <div class="max-w-4xl mx-auto flex gap-4">
@@ -3110,6 +3128,8 @@
         // ========== i18n DATA ==========
         const I18N = {
             ko: {
+                "tab.routine": "루틴",
+                "tab.shoutouts": "샤라웃",
                 "nav.more": "더보기",
                 "nav.darkMode": "다크 모드",
                 "nav.language": "언어",
@@ -3466,6 +3486,8 @@
                 "category.button": "IoT 버튼",
             },
             en: {
+                "tab.routine": "Routines",
+                "tab.shoutouts": "Shoutouts",
                 "nav.more": "More",
                 "nav.darkMode": "Dark Mode",
                 "nav.language": "Language",
@@ -3960,6 +3982,9 @@
             currentLang = lang;
             applyI18n();
             closeMoreMenu();
+            try {
+                localStorage.setItem('stRuleBuilderLanguage', lang);
+            } catch (e) {}
         }
 
         function showLanguagePopoverIfNeeded() {
@@ -3999,6 +4024,9 @@
             } else {
                 icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>';
             }
+            try {
+                localStorage.setItem('stRuleBuilderTheme', isDarkMode ? 'dark' : 'light');
+            } catch (e) {}
         }
 
         // ========== MORE MENU ==========
@@ -4036,7 +4064,12 @@
             document.getElementById(targetId).classList.add('active');
 
             // Footer
-            document.getElementById('navFooter').classList.toggle('hidden', (appPhase === 'main' && currentStep === 1) || targetId === 'bridge_setup6');
+            const isSelectStep = (appPhase === 'main' && currentStep === 1);
+            document.getElementById('navFooter').classList.toggle('hidden', isSelectStep || targetId === 'bridge_setup6');
+            const tabNavBar = document.getElementById('tabNavBar');
+            if (tabNavBar) {
+                tabNavBar.classList.toggle('hidden', !isSelectStep);
+            }
             syncNavFooterPadding();
             document.getElementById('nextBtn').innerText = currentStep === totalSteps ? t('nav.finish') : t('nav.next');
             document.getElementById('prevBtn').innerText = t('nav.prev');
@@ -6582,13 +6615,45 @@
         // ========== NAV FOOTER BODY PADDING ==========
         function syncNavFooterPadding() {
             const footer = document.getElementById('navFooter');
+            const tabNavBar = document.getElementById('tabNavBar');
             if (!footer) return;
-            const isVisible = !footer.classList.contains('hidden');
-            document.body.style.paddingBottom = isVisible ? (footer.offsetHeight + 'px') : '';
+            const isFooterVisible = !footer.classList.contains('hidden');
+            const isTabVisible = tabNavBar && !tabNavBar.classList.contains('hidden');
+            if (isTabVisible) {
+                document.body.style.paddingBottom = (tabNavBar.offsetHeight + 48) + 'px';
+            } else if (isFooterVisible) {
+                document.body.style.paddingBottom = (footer.offsetHeight) + 'px';
+            } else {
+                document.body.style.paddingBottom = '';
+            }
         }
 
         // ========== INIT ==========
         window.onload = function () {
+            // Load theme choice
+            let savedTheme = 'light';
+            try {
+                savedTheme = localStorage.getItem('stRuleBuilderTheme') || 'light';
+            } catch (e) {}
+            isDarkMode = (savedTheme === 'dark');
+            document.documentElement.classList.toggle('dark', isDarkMode);
+            const dmt = document.getElementById('darkModeTrack');
+            if (dmt) dmt.classList.toggle('on', isDarkMode);
+            const icon = document.getElementById('dmIcon');
+            if (icon) {
+                if (isDarkMode) {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-9h1M3 12H2m13.66-6.34l.71-.71M6.34 17.66l-.71.71M17.66 17.66l.71.71M6.34 6.34l-.71-.71M12 6a6 6 0 100 12A6 6 0 0012 6z"/>';
+                } else {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>';
+                }
+            }
+
+            // Load language choice
+            try {
+                const savedLang = localStorage.getItem('stRuleBuilderLanguage');
+                if (savedLang) currentLang = savedLang;
+            } catch (e) {}
+
             applyI18n();
             filterDeviceCategory('all');
             updateUI();
