@@ -310,6 +310,43 @@
             transform: scale(0.98);
         }
 
+        #logo_interactive_box {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #logo_interactive_box:hover {
+            transform: scale(1.05);
+        }
+        #logo_interactive_box:active {
+            transform: scale(0.97);
+        }
+
+        /* Easteregg Animations */
+        @keyframes active-wiggle {
+            0%, 100% { transform: translateX(0); }
+            15% { transform: translateX(-8px); }
+            30% { transform: translateX(7px); }
+            45% { transform: translateX(-5px); }
+            60% { transform: translateX(4px); }
+            75% { transform: translateX(-2px); }
+            90% { transform: translateX(1px); }
+        }
+        .animate-active-wiggle {
+            animation: active-wiggle 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        }
+
+        @keyframes logo-hint-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            15% { transform: rotate(-8deg); }
+            30% { transform: rotate(7deg); }
+            45% { transform: rotate(-6deg); }
+            60% { transform: rotate(5deg); }
+            75% { transform: rotate(-3deg); }
+            90% { transform: rotate(2deg); }
+        }
+        .animate-hint-wiggle {
+            animation: logo-hint-wiggle 0.5s ease-in-out;
+        }
+
         iframe {
             border-radius: 12px;
             overflow: hidden;
@@ -410,11 +447,15 @@
         
         <!-- Welcome Header Area -->
         <div class="text-center px-5 md:px-8 mb-12">
-            <img src="../images/brandidentity/logo_rulebuilder_symbol.png" class="w-24 h-24 mx-auto mb-3 drop-shadow-lg select-none hover:rotate-6 transition-transform duration-300" alt="logo symbol" />
-            <h2 class="display-font text-4xl font-bold tracking-wide dark:text-white mt-8 mb-2">Rule Builder</h2>
-            <span id="header_badge" class="px-3 py-1 bg-blue-100 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/25 text-[11px] font-extrabold tracking-wider rounded-full text-blue-600 dark:text-[#68AEFF] select-none uppercase">
-                샤라웃 피드
-            </span>
+            <div id="logo_interactive_box" onclick="handleLogoClick()" class="inline-flex flex-col items-center cursor-pointer transition-all duration-300">
+                <img id="logo_img" src="../images/brandidentity/logo_rulebuilder_symbol.png" class="w-24 h-24 mx-auto mb-3 drop-shadow-lg select-none hover:rotate-6 transition-transform duration-300 pointer-events-none" alt="logo symbol" />
+                <h2 id="logo_text" class="display-font text-4xl font-bold tracking-wide dark:text-white mt-6">Rule Builder</h2>
+                <div class="mt-2 text-center">
+                    <span id="header_badge" class="px-3 py-1 bg-blue-100 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/25 text-[11px] font-extrabold tracking-wider rounded-full text-blue-600 dark:text-[#68AEFF] select-none uppercase transition-colors duration-200">
+                        샤라웃 피드
+                    </span>
+                </div>
+            </div>
             <h3 id="header_title" class="text-xl md:text-3.5xl font-black mt-8 tracking-tight leading-snug dark:text-white">
                 다른 사람들은 룰빌더로 어떤 일상을 만들고 있을까요?
             </h3>
@@ -481,6 +522,88 @@
                 <button onclick="closeModal('contactModal')" class="flex-1 py-3.5 border border-gray-200 dark:border-white/10 rounded-xl font-bold text-sm dark:text-white" id="contact_btn_close">닫기</button>
                 <a href="https://smartthings.co.kr" target="_blank" class="flex-1 py-3.5 btn-primary text-white rounded-xl font-bold text-sm flex items-center justify-center" id="contact_btn_cta">스싱갤로 가기</a>
             </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL: SMARTTHINGS CHAN (EASTER EGG) ==================== -->
+    <div id="smartThingsChanModal" class="modal-overlay">
+        <div class="glass-card p-8 md:p-10 max-w-md w-full mx-5 shadow-2xl bg-white dark:bg-[#0c1424] border-transparent rounded-2xl flex flex-col justify-between max-h-[90vh]">
+            <div class="overflow-y-auto pr-1">
+                <div class="flex items-center gap-3 mb-5">
+                    <img src="../images/icons/icon_smartthings-chan.png" class="w-12 h-12 rounded-full border-2 border-pink-400" alt="st-chan avatar" />
+                    <div>
+                        <h3 id="chan_title" class="text-xl font-bold tracking-tight text-pink-500 dark:text-pink-400">스싱쨩</h3>
+                        <p id="chan_subtitle" class="text-xs text-gray-400 dark:text-zinc-500 leading-snug">스마트싱스의 퍼스널 스마트홈 어시스턴트</p>
+                    </div>
+                </div>
+                
+                <p id="chan_welcome" class="text-sm md:text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mb-6 font-light">
+                    "주인님! 룰빌더에서 유용하고 따뜻한 다른 사람들의 루틴들을 살펴보시는 건가요? 더 흥미진진하고 유쾌한 스마트홈의 일상을 만화로도 만나보세요! 히힛"
+                </p>
+                
+                <div class="space-y-3 mb-6">
+                    <a href="https://gall.dcinside.com/m/smartthings/12469" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-pink-100 dark:border-pink-500/10 hover:border-pink-300 dark:hover:border-pink-400/30 bg-pink-50/30 dark:bg-pink-500/5 hover:bg-pink-50/50 dark:hover:bg-pink-500/10 transition-all select-none group">
+                        <div class="flex flex-col text-left">
+                            <span class="text-[10px] font-bold text-pink-500 uppercase tracking-wider">Opening song</span>
+                            <span class="font-bold text-sm text-gray-900 dark:text-gray-100 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">Connectivity</span>
+                        </div>
+                        <svg class="w-4 h-4 text-pink-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    
+                    <a href="https://gall.dcinside.com/m/smartthings/12384" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 dark:border-white/5 hover:border-pink-200 dark:hover:border-pink-500/20 bg-gray-50/50 dark:bg-white/5 hover:bg-pink-50/20 dark:hover:bg-pink-500/5 transition-all select-none group">
+                        <div class="flex flex-col text-left">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Episode 1</span>
+                            <span class="font-bold text-sm text-gray-900 dark:text-gray-100 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">커넥트! 스싱쨩 1화</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-pink-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    
+                    <a href="https://gall.dcinside.com/m/smartthings/12496" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 dark:border-white/5 hover:border-pink-200 dark:hover:border-pink-500/20 bg-gray-50/50 dark:bg-white/5 hover:bg-pink-50/20 dark:hover:bg-pink-500/5 transition-all select-none group">
+                        <div class="flex flex-col text-left">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Episode 2</span>
+                            <span class="font-bold text-sm text-gray-900 dark:text-gray-100 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">커넥트! 스싱쨩 2화</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-pink-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    
+                    <a href="https://gall.dcinside.com/mgallery/board/view/?id=smartthings&no=12587" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 dark:border-white/5 hover:border-pink-200 dark:hover:border-pink-500/20 bg-gray-50/50 dark:bg-white/5 hover:bg-pink-50/20 dark:hover:bg-pink-500/5 transition-all select-none group">
+                        <div class="flex flex-col text-left">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Episode 3</span>
+                            <span class="font-bold text-sm text-gray-900 dark:text-gray-100 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">커넥트! 스싱쨩 3화</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-pink-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    
+                    <a href="https://gall.dcinside.com/mgallery/board/view/?id=smartthings&no=12866" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 dark:border-white/5 hover:border-pink-200 dark:hover:border-pink-500/20 bg-gray-50/50 dark:bg-white/5 hover:bg-pink-50/20 dark:hover:bg-pink-500/5 transition-all select-none group">
+                        <div class="flex flex-col text-left">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Episode 4</span>
+                            <span class="font-bold text-sm text-gray-900 dark:text-gray-100 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">커넥트! 스싱쨩 4화</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-pink-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    
+                    <a href="https://gall.dcinside.com/mgallery/board/view/?id=smartthings&no=13016" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 dark:border-white/5 hover:border-pink-200 dark:hover:border-pink-500/20 bg-gray-50/50 dark:bg-white/5 hover:bg-pink-50/20 dark:hover:bg-pink-500/5 transition-all select-none group">
+                        <div class="flex flex-col text-left">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Episode 5</span>
+                            <span class="font-bold text-sm text-gray-900 dark:text-gray-100 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors">커넥트! 스싱쨩 5화</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-pink-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <button onclick="closeChanModal()" class="w-full mt-4 py-3.5 bg-pink-500 hover:bg-pink-600 active:bg-pink-700 text-white rounded-xl font-extrabold text-sm shadow-md shadow-pink-500/20 hover:shadow-lg hover:shadow-pink-500/30 transition-all select-none" id="chan_btn_close">커넥트!</button>
         </div>
     </div>
 
@@ -566,6 +689,12 @@
         let currentLang = 'ko';
         let moreMenuOpen = false;
 
+        // SmartThings Chan Easteregg States
+        let clickCount = 0;
+        let clickTimeout = null;
+        let isChanMode = false;
+        let hintInterval = null;
+
         const LOCAL_I18N = {
             ko: {
                 "text.dm": "다크 모드",
@@ -584,7 +713,11 @@
                 "contact.cta": "스싱갤로 가기",
                 "cat.knob": "IoT 노브",
                 "cat.button": "IoT 버튼",
-                "post.viewDetails": "자세히 보기"
+                "post.viewDetails": "자세히 보기",
+                "chan.title": "스싱쨩",
+                "chan.subtitle": "스마트싱스의 퍼스널 스마트홈 어시스턴트",
+                "chan.welcome": "\"주인님! 룰빌더에서 유용하고 따뜻한 다른 사람들의 루틴들을 살펴보시는 건가요? 더 흥미진진하고 유쾌한 스마트홈의 일상을 만화로도 만나보세요! 히힛\"",
+                "chan.close": "커넥트!"
             },
             en: {
                 "text.dm": "Dark Mode",
@@ -593,7 +726,7 @@
                 "text.lang.gnb": "Language",
                 "header.badge": "Shoutouts Feed",
                 "header.title": "How are others shaping their daily lives with Rule Builder?",
-                "header.subtitle": "If you find a smart home routine you love, jump over to the 'Routines' tab and build your own awesome automation!",
+                "header.subtitle": "If you find a smart home routine you love, jump over to the 'Routine' tab and build your own awesome automation!",
                 "tab.routine": "Routines",
                 "tab.shout": "Shoutouts",
                 "thanks.title": "Special Thanks",
@@ -603,7 +736,11 @@
                 "contact.cta": "ST Gallery",
                 "cat.knob": "IoT Knob",
                 "cat.button": "IoT Button",
-                "post.viewDetails": "Learn More"
+                "post.viewDetails": "Learn More",
+                "chan.title": "SmartThings-chan",
+                "chan.subtitle": "Personal smart home assistant for SmartThings",
+                "chan.welcome": "\"Master! Are you browsing other people's cozy and productive routines in Rule Builder? Meet your lovely smart-home assistant in the webtoon series! Enjoy! \"",
+                "chan.close": "I love SmartThings-chan"
             }
         };
 
@@ -784,7 +921,15 @@
             document.getElementById('text_thanks_gnb').innerText = t('text.thanks.gnb');
             document.getElementById('text_contact_gnb').innerText = t('text.contact.gnb');
             document.getElementById('text_lang_gnb').innerText = t('text.lang.gnb');
-            document.getElementById('header_badge').innerText = t('header.badge');
+            
+            if (isChanMode) {
+                document.getElementById('logo_text').innerText = (currentLang === 'ko' ? '스싱쨩' : 'SmartThings-Chan');
+                document.getElementById('header_badge').innerText = (currentLang === 'ko' ? '퍼스널 스마트홈 어시스턴트' : 'Personal Smart Home Assistant');
+            } else {
+                document.getElementById('logo_text').innerText = 'Rule Builder';
+                document.getElementById('header_badge').innerText = t('header.badge');
+            }
+            
             document.getElementById('header_title').innerHTML = t('header.title');
             document.getElementById('header_subtitle').innerText = t('header.subtitle');
             document.getElementById('tab_lbl_routine').innerText = t('tab.routine');
@@ -794,6 +939,16 @@
             document.getElementById('contact_title').innerText = t('contact.title');
             document.getElementById('contact_btn_close').innerText = t('contact.close');
             document.getElementById('contact_btn_cta').innerText = t('contact.cta');
+
+            // Update SmartThings-Chan modal elements translates
+            const chanTitle = document.getElementById('chan_title');
+            const chanSubtitle = document.getElementById('chan_subtitle');
+            const chanWelcome = document.getElementById('chan_welcome');
+            const chanBtnClose = document.getElementById('chan_btn_close');
+            if (chanTitle) chanTitle.innerText = t('chan.title');
+            if (chanSubtitle) chanSubtitle.innerText = t('chan.subtitle');
+            if (chanWelcome) chanWelcome.innerText = t('chan.welcome');
+            if (chanBtnClose) chanBtnClose.innerText = t('chan.close');
 
             // Set popover active badges
             document.getElementById('langKo').className = 'lang-badge ' + (currentLang === 'ko' ? 'active-lang' : 'inactive-lang');
@@ -831,6 +986,128 @@
             document.getElementById(id).classList.remove('active');
         }
 
+        // --- SmartThings Chan Easteregg Handlers ---
+        function openChanModal() {
+            document.getElementById('smartThingsChanModal').classList.add('active');
+        }
+
+        function closeChanModal() {
+            document.getElementById('smartThingsChanModal').classList.remove('active');
+            resetLogo();
+        }
+
+        function resetLogo() {
+            isChanMode = false;
+            const logoImg = document.getElementById('logo_img');
+            const logoText = document.getElementById('logo_text');
+            const badge = document.getElementById('header_badge');
+            const box = document.getElementById('logo_interactive_box');
+
+            if (!logoImg || !logoText || !badge || !box) return;
+
+            logoImg.src = '../images/brandidentity/logo_rulebuilder_symbol.png';
+            logoImg.className = "w-24 h-24 mx-auto mb-3 drop-shadow-lg select-none hover:rotate-6 transition-transform duration-300 pointer-events-none";
+            logoImg.removeAttribute('style');
+            
+            logoText.innerText = 'Rule Builder';
+            
+            // Restore badge style and localized text
+            badge.innerText = t('header.badge');
+            badge.className = "px-3 py-1 bg-blue-100 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/25 text-[11px] font-extrabold tracking-wider rounded-full text-blue-600 dark:text-[#68AEFF] select-none uppercase transition-colors duration-200";
+            
+            box.className = "inline-flex flex-col items-center cursor-pointer transition-all duration-300";
+            box.style.transform = '';
+        }
+
+        function handleLogoClick() {
+            const box = document.getElementById('logo_interactive_box');
+            const badge = document.getElementById('header_badge');
+            if (!box || !badge) return;
+
+            if (isChanMode) {
+                openChanModal();
+                return;
+            }
+
+            // Click count accumulation
+            clickCount++;
+            
+            // 1st Step: Animating wiggle & changing badge text temporarily
+            box.classList.add('animate-active-wiggle');
+            badge.innerText = currentLang === 'ko' ? '그만 눌러요 주인님' : "Stop pressing me, master!";
+            badge.className = "px-3 py-1 bg-red-100 dark:bg-red-500/10 border border-red-200/50 dark:border-red-500/25 text-[11px] font-extrabold tracking-wider rounded-full text-red-600 dark:text-[#ff6b6b] select-none uppercase transition-all duration-200";
+
+            // Restore style after wiggle animation runs
+            setTimeout(() => {
+                box.classList.remove('animate-active-wiggle');
+                if (!isChanMode) {
+                    badge.innerText = t('header.badge');
+                    badge.className = "px-3 py-1 bg-blue-100 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/25 text-[11px] font-extrabold tracking-wider rounded-full text-blue-600 dark:text-[#68AEFF] select-none uppercase transition-colors duration-200";
+                }
+            }, 350);
+
+            if (clickTimeout) {
+                clearTimeout(clickTimeout);
+            }
+
+            if (clickCount >= 5) {
+                // 2nd Step: Character transformation!
+                triggerChanTransformation();
+                clickCount = 0;
+            } else {
+                clickTimeout = setTimeout(() => {
+                    clickCount = 0;
+                }, 1500); // 1.5 seconds click combo window
+            }
+        }
+
+        function triggerChanTransformation() {
+            isChanMode = true;
+            const logoImg = document.getElementById('logo_img');
+            const logoText = document.getElementById('logo_text');
+            const badge = document.getElementById('header_badge');
+            const box = document.getElementById('logo_interactive_box');
+
+            if (!logoImg || !logoText || !badge || !box) return;
+
+            // Soft popping accent transition
+            box.style.transform = 'scale(1.2)';
+            box.style.transition = 'transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            
+            setTimeout(() => {
+                box.style.transform = '';
+            }, 150);
+
+            // Change image to SmartThings-Chan avatar from Unsplash & add colorful frame styling
+            logoImg.src = '../images/icons/icon_smartthings-chan.png';
+            logoImg.className = "w-24 h-24 mx-auto mb-3 drop-shadow-lg select-none hover:scale-105 transition-all duration-300 rounded-full border-4 border-pink-400 shadow-lg shadow-pink-400/30";
+            
+            // Dynamic localization translations
+            if (currentLang === 'ko') {
+                logoText.innerText = '스싱쨩';
+                badge.innerText = '퍼스널 스마트홈 어시스턴트';
+            } else {
+                logoText.innerText = 'SmartThings-Chan';
+                badge.innerText = 'Personal Smart Home Assistant';
+            }
+
+            // Beautiful pink badge update
+            badge.className = "px-3 py-1 bg-pink-100 dark:bg-pink-500/10 border border-pink-200/50 dark:border-pink-500/25 text-[11px] font-extrabold tracking-wider rounded-full text-pink-600 dark:text-[#ff7597] select-none uppercase transition-colors duration-200";
+        }
+
+        function startLogoHint() {
+            hintInterval = setInterval(() => {
+                if (isChanMode) return;
+                const box = document.getElementById('logo_interactive_box');
+                if (box) {
+                    box.classList.add('animate-hint-wiggle');
+                    setTimeout(() => {
+                        box.classList.remove('animate-hint-wiggle');
+                    }, 500);
+                }
+            }, 10000);
+        }
+
         function goToHome() {
             location.href = '../index.html';
         }
@@ -862,6 +1139,9 @@
             } catch (e) {}
 
             updateUI();
+
+            // Trigger periodic hint wiggle
+            startLogoHint();
         };
     </script>
 </body>
