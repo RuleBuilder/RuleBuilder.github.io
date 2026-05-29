@@ -52,6 +52,7 @@
     <meta name="twitter:image" content="https://rulebuilder.github.io/images/brandidentity/head_RuleBuilder_Twittercard.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
     
@@ -3121,9 +3122,24 @@
         <div
             class="glass-card p-8 md:p-10 max-w-lg w-full mx-5 shadow-2xl bg-white dark:bg-[#0c1424] border-transparent text-left">
             <h3 class="text-xl font-bold mb-4 tracking-tight" data-i18n="contactModal.title">문의하기</h3>
-            <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mb-8 text-left"
+            <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mb-6 text-left"
                 data-i18n-html="contactModal.desc"><b>스마트싱스 갤러리</b>에 문의해 주세요<br><br>SmartThings 유저들을 위한 유용한 리소스와 정보가 모여
                 있으며, Rule Builder 또한 이곳에서 운영하고 있습니다.</p>
+            
+            <!-- Email Block -->
+            <div class="mb-8 p-3.5 bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl flex flex-col gap-1 text-left">
+                <span class="text-[10px] font-bold text-gray-400 dark:text-zinc-500 uppercase tracking-wider" data-i18n="contactModal.emailLabel">이메일 문의</span>
+                <div class="flex items-center justify-between mt-1">
+                    <a href="mailto:dothesmartthings@gmail.com" class="text-sm font-semibold text-[#008DF7] dark:text-blue-400 hover:underline">
+                        dothesmartthings@gmail.com
+                    </a>
+                    <button onclick="copyEmailToClipboard()" class="text-xs text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-white px-2.5 py-1 bg-white dark:bg-zinc-800 rounded-lg border border-gray-200 dark:border-white/10 transition-all font-medium flex items-center gap-1">
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                        <span data-i18n="contactModal.copyEmail">복사</span>
+                    </button>
+                </div>
+            </div>
+
             <div class="flex gap-3">
                 <button onclick="closeContactModal()"
                     class="flex-1 py-3.5 px-5 border border-gray-200 dark:border-white/10 rounded-2xl font-black text-sm text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-all"
@@ -3170,6 +3186,8 @@
                 "contactModal.desc": "<b>스마트싱스 갤러리</b>에 문의해 주세요<br><br>SmartThings 유저들을 위한 유용한 리소스와 정보가 모여 있으며, SmartThings Rule Builder 또한 이곳에서 운영하고 있습니다.",
                 "contactModal.close": "닫기",
                 "contactModal.cta": "스싱갤로 가기",
+                "contactModal.emailLabel": "이메일 문의",
+                "contactModal.copyEmail": "복사",
 
                 "step.indicator": "STEP {cur} OF {total}",
                 "step.1.title": "루틴 프리셋 고르기",
@@ -3528,6 +3546,8 @@
                 "contactModal.desc": "Please visit the <b>SmartThings Gallery</b>, the Korean SmartThings user community.<br><br>It is packed with useful resources and information for SmartThings users, and it also operates the SmartThings Rule Builder.",
                 "contactModal.close": "Close",
                 "contactModal.cta": "SmartThings Gallery",
+                "contactModal.emailLabel": "Email Contact",
+                "contactModal.copyEmail": "Copy",
 
                 "step.indicator": "STEP {cur} OF {total}",
                 "step.1.title": "Choose a Routine Preset",
@@ -3984,6 +4004,10 @@
             // dynamic UI texts
             updateDynamicTexts();
             updateKnobModalUI();
+
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
         }
 
         function updateDynamicTexts() {
@@ -5177,6 +5201,20 @@
             document.getElementById('contactModal').classList.add('active');
         }
         function closeContactModal() { document.getElementById('contactModal').classList.remove('active'); }
+
+        function copyEmailToClipboard() {
+            navigator.clipboard.writeText('dothesmartthings@gmail.com').then(() => {
+                showToast(currentLang === 'ko' ? '이메일 주소가 복사되었습니다!' : 'Email address copied to clipboard!');
+            }).catch(err => {
+                const tempInput = document.createElement('input');
+                tempInput.value = 'dothesmartthings@gmail.com';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast(currentLang === 'ko' ? '이메일 주소가 복사되었습니다!' : 'Email address copied to clipboard!');
+            });
+        }
 
         function resetApp() {
             closeModal();
