@@ -2212,6 +2212,44 @@
                     </div>
                 </div>
 
+                <!-- Option 3: 5단계 고정 (1,2,3,4,5) -->
+                <div onclick="selectAcFanMode('fixed5_numeric')" id="acFanModeFixed5Numeric"
+                    class="ac-fan-mode-card relative glass-card p-7 border-2 border-gray-200 dark:border-white/8 cursor-pointer group transition-all duration-200 hover:border-teal-500 dark:hover:border-teal-400">
+                    <!-- Selected badge -->
+                    <div id="acFanModeFixed5NumericBadge"
+                        class="absolute top-5 right-5 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shadow-md hidden">
+                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-base mb-1 text-gray-500 dark:text-gray-400"
+                                data-i18n="step3acfan.opt5_numeric.title">5단계 (1, 2, 3, 4, 5)</p>
+                            <p class="text-sm text-gray-400 dark:text-zinc-500 leading-relaxed mb-5"
+                                data-i18n="step3acfan.opt5_numeric.desc">바람세기를 1단부터 5단까지 지원합니다. 스마트싱스에서 바람세기를 1, 2, 3, 4, 5로 제어할 수 있습니다.</p>
+                            <!-- 5 notch dots slider graphic -->
+                            <div class="pr-4">
+                                <svg viewBox="0 0 240 36" xmlns="http://www.w3.org/2000/svg"
+                                    class="w-full max-w-[260px]">
+                                    <!-- Track -->
+                                    <rect x="8" y="16" width="247" height="4" rx="2" fill="currentColor"
+                                        class="text-teal-200 dark:text-teal-800" />
+                                    <!-- Filled portion (up to 4th notch, 3/4) -->
+                                    <rect x="8" y="16" width="168" height="4" rx="2" fill="currentColor"
+                                        class="text-teal-500" />
+                                    <!-- 5 notch dots -->
+                                    <circle cx="8" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="64" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="120" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="176" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="232" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Option 2: 3단계 고정 (약풍, 강풍, 터보풍 / medium, high, turbo) -->
                 <div onclick="selectAcFanMode('fixed3')" id="acFanModeFixed3"
                     class="ac-fan-mode-card relative glass-card p-7 border-2 border-gray-200 dark:border-white/8 cursor-pointer group transition-all duration-200 hover:border-teal-500 dark:hover:border-teal-400">
@@ -3486,6 +3524,8 @@
                 "step3acfan.desc": "에어컨 사양에 맞는 바람세기 제어 방식을 선택하세요.",
                 "step3acfan.opt5.title": "5단계 (1, 2, 3, 4, MAX)",
                 "step3acfan.opt5.desc": "바람세기를 1단부터 5단까지 지원합니다. 스마트싱스에서 바람세기를 1, 2, 3, 4, MAX로 제어할 수 있습니다.",
+                "step3acfan.opt5_numeric.title": "5단계 (1, 2, 3, 4, 5)",
+                "step3acfan.opt5_numeric.desc": "바람세기를 1단부터 5단까지 지원합니다. 스마트싱스에서 바람세기를 1, 2, 3, 4, 5로 제어할 수 있습니다.",
                 "step3acfan.opt3.title": "3단계 (약풍, 강풍, 터보풍)",
                 "step3acfan.opt3.desc": "바람세기를 1단부터 3단까지 지원합니다. 스마트싱스에서 바람세기를 약풍, 강풍, 터보풍으로 제어할 수 있습니다.",
 
@@ -3874,6 +3914,8 @@
                 "step3acfan.desc": "Choose the fan speed control method that matches your AC specification.",
                 "step3acfan.opt5.title": "5-Level Fan Speed Control (1, 2, 3, 4, MAX)",
                 "step3acfan.opt5.desc": "Maps your knob rotation (1 to 100%) evenly into 5 fan speed stages. (Outputs: \"1\", \"2\", \"3\", \"4\", \"max\")",
+                "step3acfan.opt5_numeric.title": "5-Level Fan Speed Control (1, 2, 3, 4, 5)",
+                "step3acfan.opt5_numeric.desc": "Maps your knob rotation (1 to 100%) evenly into 5 fan speed stages. (Outputs: \"1\", \"2\", \"3\", \"4\", \"5\")",
                 "step3acfan.opt3.title": "3-Level Fan Speed Control (Medium, High, Turbo)",
                 "step3acfan.opt3.desc": "Maps your knob rotation into 3 discrete speed modes. Commonly used in central systems. (Outputs: \"medium\", \"high\", \"turbo\")",
 
@@ -4979,40 +5021,32 @@
         function selectAcFanMode(mode) {
             selectedAcFanMode = mode;
             
-            const cardFixed5 = document.getElementById('acFanModeFixed5');
-            const cardFixed3 = document.getElementById('acFanModeFixed3');
-            const badgeFixed5 = document.getElementById('acFanModeFixed5Badge');
-            const badgeFixed3 = document.getElementById('acFanModeFixed3Badge');
-            
             document.querySelectorAll('.ac-fan-mode-card').forEach(el => {
-                el.classList.remove('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
+                el.classList.remove('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5', 'bg-[radial-gradient(100%_100%_at_0%_0%,rgba(20,184,166,0.05)_0%,rgba(0,0,0,0)_100%)]');
                 el.classList.add('border-gray-200', 'dark:border-white/8');
+                
+                const title = el.querySelector('p.font-bold');
+                if (title) {
+                    title.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
+                }
+                
+                const badge = el.querySelector('.absolute.top-5.right-5');
+                if (badge) badge.classList.add('hidden');
             });
 
-            if (mode === 'fixed5') {
-                if (cardFixed5) {
-                    cardFixed5.classList.remove('border-gray-200', 'dark:border-white/8');
-                    cardFixed5.classList.add('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
-                }
-                if (badgeFixed5) badgeFixed5.classList.remove('hidden');
-                if (badgeFixed3) badgeFixed3.classList.add('hidden');
+            const activeCardId = mode === 'fixed5' ? 'acFanModeFixed5' : (mode === 'fixed5_numeric' ? 'acFanModeFixed5Numeric' : 'acFanModeFixed3');
+            const activeCard = document.getElementById(activeCardId);
+            if (activeCard) {
+                activeCard.classList.remove('border-gray-200', 'dark:border-white/8');
+                activeCard.classList.add('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5', 'bg-[radial-gradient(100%_100%_at_0%_0%,rgba(20,184,166,0.05)_0%,rgba(0,0,0,0)_100%)]');
                 
-                const titleA = cardFixed5 ? cardFixed5.querySelector('[data-i18n="step3acfan.opt5.title"]') : null;
-                const titleB = cardFixed3 ? cardFixed3.querySelector('[data-i18n="step3acfan.opt3.title"]') : null;
-                if (titleA) titleA.className = "font-bold text-base mb-1 text-teal-800 dark:text-teal-300";
-                if (titleB) titleB.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
-            } else {
-                if (cardFixed3) {
-                    cardFixed3.classList.remove('border-gray-200', 'dark:border-white/8');
-                    cardFixed3.classList.add('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
+                const title = activeCard.querySelector('p.font-bold');
+                if (title) {
+                    title.className = "font-bold text-base mb-1 text-teal-800 dark:text-teal-300";
                 }
-                if (badgeFixed5) badgeFixed5.classList.add('hidden');
-                if (badgeFixed3) badgeFixed3.classList.remove('hidden');
                 
-                const titleA = cardFixed5 ? cardFixed5.querySelector('[data-i18n="step3acfan.opt5.title"]') : null;
-                const titleB = cardFixed3 ? cardFixed3.querySelector('[data-i18n="step3acfan.opt3.title"]') : null;
-                if (titleA) titleA.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
-                if (titleB) titleB.className = "font-bold text-base mb-1 text-teal-800 dark:text-teal-300";
+                const badge = activeCard.querySelector('.absolute.top-5.right-5');
+                if (badge) badge.classList.remove('hidden');
             }
         }
 
@@ -5479,17 +5513,28 @@
             const bar = document.getElementById('button_acfan_step_bar');
             const text = document.getElementById('button_acfan_step_preview_text');
             if (!bar || !text) return;
-            const is5Stage = selectedAcFanMode === 'fixed5';
-            const count = is5Stage ? 5 : 3;
+            const count = (selectedAcFanMode === 'fixed5' || selectedAcFanMode === 'fixed5_numeric') ? 5 : 3;
             const positions = [];
             for (let i = 0; i < count; i++) {
                 positions.push((i / (count - 1)) * 100);
             }
             bar.innerHTML = positions.map(pos => `<span class="brightness-step-marker" style="left:${pos}%"></span>`).join('');
             if (currentLang === 'ko') {
-                text.innerText = is5Stage ? '5단계 (1 → 2 → 3 → 4 → MAX)' : '3단계 (약풍 → 강풍 → 터보풍)';
+                if (selectedAcFanMode === 'fixed5') {
+                    text.innerText = '5단계 (1 → 2 → 3 → 4 → MAX)';
+                } else if (selectedAcFanMode === 'fixed5_numeric') {
+                    text.innerText = '5단계 (1 → 2 → 3 → 4 → 5)';
+                } else {
+                    text.innerText = '3단계 (약풍 → 강풍 → 터보풍)';
+                }
             } else {
-                text.innerText = is5Stage ? '5-stage (1 → 2 → 3 → 4 → MAX)' : '3-stage (Medium → High → Turbo)';
+                if (selectedAcFanMode === 'fixed5') {
+                    text.innerText = '5-stage (1 → 2 → 3 → 4 → MAX)';
+                } else if (selectedAcFanMode === 'fixed5_numeric') {
+                    text.innerText = '5-stage (1 → 2 → 3 → 4 → 5)';
+                } else {
+                    text.innerText = '3-stage (Medium → High → Turbo)';
+                }
             }
         }
 
@@ -6535,6 +6580,26 @@
                             }
                         });
                     });
+                } else if (selectedAcFanMode === 'fixed5_numeric') {
+                    // Option 3: 5 steps (1, 2, 3, 4, 5)
+                    const bands = [
+                        { start: 1, end: 20, argument: "1" },
+                        { start: 21, end: 40, argument: "2" },
+                        { start: 41, end: 60, argument: "3" },
+                        { start: 61, end: 80, argument: "4" },
+                        { start: 81, end: 100, argument: "5" }
+                    ];
+                    bands.forEach(b => {
+                        stepsArray.push({
+                            "if": {
+                                "between": {
+                                    "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
+                                    "start": { "integer": b.start }, "end": { "integer": b.end }
+                                },
+                                "then": [{ "command": { "devices": ["@device_ac"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": b.argument }] }] } }]
+                            }
+                        });
+                    });
                 } else {
                     // Option 2: 3 steps (medium, high, turbo)
                     const bands = [
@@ -6659,8 +6724,13 @@
                 const btnCompId = (!isCompHidden && rawCompVal) ? rawCompVal : 'main';
                 const targetAcIds = getButtonTargetDeviceIds('@device_ac');
                 const loop = buttonAcFanLoopMode;
-                const is5Stage = selectedAcFanMode === 'fixed5';
-                const stages = is5Stage ? ["1", "2", "3", "4", "max"] : ["medium", "high", "turbo"];
+                
+                let stages = ["medium", "high", "turbo"];
+                if (selectedAcFanMode === 'fixed5') {
+                    stages = ["1", "2", "3", "4", "max"];
+                } else if (selectedAcFanMode === 'fixed5_numeric') {
+                    stages = ["1", "2", "3", "4", "5"];
+                }
 
                 function acFanOperand() {
                     return { "device": { "devices": targetAcIds, "component": "main", "capability": "airConditionerFanMode", "attribute": "airConditionerFanMode", "trigger": "Never" } };
