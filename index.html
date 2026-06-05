@@ -2200,6 +2200,49 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Option C: 10단계 고정 (Active) -->
+                <div onclick="selectFanMode('fixed10')" id="fanModeFixed10"
+                    class="fan-mode-card relative glass-card p-7 border-2 border-gray-200 dark:border-white/8 cursor-pointer group transition-all duration-200 hover:border-teal-500 dark:hover:border-teal-400">
+                    <!-- Selected badge -->
+                    <div id="fanModeFixed10Badge"
+                        class="absolute top-5 right-5 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shadow-md hidden">
+                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-base mb-1 text-gray-500 dark:text-gray-400"
+                                data-i18n="step3fan.optC.title">10단계</p>
+                            <p class="text-sm text-gray-400 dark:text-zinc-500 leading-relaxed mb-5"
+                                data-i18n="step3fan.optC.desc">바람세기를 1단부터 10단까지 지원하는 스마트 선풍기의 10단계 매핑방식입니다.</p>
+                            <!-- 10-notch slider graphic -->
+                            <div class="pr-4">
+                                <svg viewBox="0 0 240 36" xmlns="http://www.w3.org/2000/svg"
+                                    class="w-full max-w-[260px]">
+                                    <!-- Track (unfilled) -->
+                                    <rect x="8" y="16" width="224" height="4" rx="2" fill="currentColor"
+                                        class="text-teal-200 dark:text-teal-800" />
+                                    <!-- Filled portion (~40-50%) -->
+                                    <rect x="8" y="16" width="108" height="4" rx="2" fill="currentColor"
+                                        class="text-teal-500" />
+                                    <!-- 10 notch dots (cx goes from 8 to 232) -->
+                                    <circle cx="8" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="33" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="58" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="83" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="108" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="133" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                    <circle cx="158" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                    <circle cx="183" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                    <circle cx="208" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                    <circle cx="232" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -3772,6 +3815,8 @@
                 "step3fan.optA.desc": "대부분의 스마트 선풍기에서 지원하는 표준 5단계 매핑 방식입니다.",
                 "step3fan.optB.title": "1~100 슬라이더",
                 "step3fan.optB.desc": "1~100% 바람세기(fanSpeedPercent)를 지원하는 스마트 선풍기용 정밀 제어 방식입니다.",
+                "step3fan.optC.title": "10단계",
+                "step3fan.optC.desc": "바람세기를 1단부터 10단까지 지원하는 스마트 선풍기의 10단계 매핑방식입니다.",
                 "step3fan.comingSoon": "신규",
                 "step3fan.level.off": "꺼짐",
                 "step3fan.level.low": "느림",
@@ -3931,6 +3976,7 @@
                 "step4.buttonFan.stepAmountTitle": "한 번 누를 때마다 바뀌는 바람세기 레벨",
                 "step4.buttonFan.stepPreviewLabel": "바람세기 스텝 미리보기",
                 "step4.buttonFan.stepPreviewNote": "이 프리셋은 5단계 팬 속도에 맞춰 한 번 누를 때마다 1단계씩 이동합니다.",
+                "step4.buttonFan.stepPreviewNote10": "이 프리셋은 10단계 팬 속도에 맞춰 한 번 누를 때마다 1단계씩 이동합니다.",
                 "step4.buttonFan.sliderStepPreviewNote": "바람세기 스텝의 퍼센트가 작을수록 더 많은 바람세기 단계를 표현할 수 있지만, 원하는 세기까지 버튼을 더 많이 눌러야 합니다.",
                 "step4.buttonFan.loopModeDesc": "바람세기가 끝까지 바뀌었을 때 한 번 더 누르면 반대쪽의 바람세기로 돌아갑니다.",
                 "step4.buttonFan.caution": "버튼을 너무 빠르게 누르면 선풍기가 명령을 놓칠 수 있으므로 0.5초~1초의 간격을 두고 눌러주세요.",
@@ -4164,6 +4210,8 @@
                 "step3fan.optA.desc": "Standard 5-step mapping supported by most smart fans.",
                 "step3fan.optB.title": "1~100 Slider",
                 "step3fan.optB.desc": "Precision control for smart fans supporting 1~100% wind speed (fanSpeedPercent).",
+                "step3fan.optC.title": "10-Step",
+                "step3fan.optC.desc": "10-level mapping for smart fans supporting speed levels from 1 to 10.",
                 "step3fan.comingSoon": "NEW",
                 "step3fan.level.off": "Off",
                 "step3fan.level.low": "Low",
@@ -4323,6 +4371,7 @@
                 "step4.buttonFan.stepAmountTitle": "Fan speed level per press",
                 "step4.buttonFan.stepPreviewLabel": "Fan Speed Step Preview",
                 "step4.buttonFan.stepPreviewNote": "This preset is fixed to 1-level movement for 5-step fan speed control.",
+                "step4.buttonFan.stepPreviewNote10": "This preset is fixed to 1-level movement for 10-step fan speed control.",
                 "step4.buttonFan.sliderStepPreviewNote": "Smaller fan speed steps allow for more precise control, but require more button presses to reach your desired speed.",
                 "step4.buttonFan.loopModeDesc": "When fan speed reaches the end, one more press jumps to the opposite fan speed.",
                 "step4.buttonFan.caution": "If you press too quickly, the fan may miss commands. Leave about 0.5 to 1 second between presses.",
@@ -4412,9 +4461,11 @@
 
         const TEMPLATE_CT_MASTER = [{ "if": { "changes": { "operand": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } } }, "then": [{ "if": { "equals": { "left": { "device": { "devices": ["@device_light"], "component": "main", "capability": "switch", "attribute": "switch", "trigger": "Never" } }, "right": { "string": "on" } }, "then": "@interpolated_steps" } }] } }];
 
-        const TEMPLATE_FAN = [{ "if": { "changes": { "operand": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } } }, "then": [{ "if": { "equals": { "left": { "device": { "devices": ["@device_fan"], "component": "main", "capability": "switch", "attribute": "switch", "trigger": "Never" } }, "right": { "string": "on" } }, "then": [{ "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 0 }, "end": { "integer": 1 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 0 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 1 }, "end": { "integer": 33 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 1 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 34 }, "end": { "integer": 66 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 2 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 67 }, "end": { "integer": 99 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 3 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 100 }, "end": { "integer": 100 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 4 }] }] } }] } }] } }] } }];
+        const TEMPLATE_FAN = [{ "if": { "changes": { "operand": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } } }, "then": [{ "if": { "equals": { "left": { "device": { "devices": ["@device_fan"], "component": "main", "capability": "switch", "attribute": "switch", "trigger": "Never" } }, "right": { "string": "on" } }, "then": [{ "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 0 }, "end": { "integer": 1 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 0 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 2 }, "end": { "integer": 33 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 1 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 34 }, "end": { "integer": 66 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 2 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 67 }, "end": { "integer": 99 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 3 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 100 }, "end": { "integer": 100 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 4 }] }] } }] } }] } }] } }];
 
         const TEMPLATE_FAN_100 = [{ "if": { "changes": { "operand": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } } }, "then": [{ "if": { "equals": { "left": { "device": { "devices": ["@device_fan"], "component": "main", "capability": "switch", "attribute": "switch", "trigger": "Never" } }, "right": { "string": "on" } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeedPercent", "command": "setPercent", "arguments": [{ "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }] }] } }] } }] } }];
+
+        const TEMPLATE_FAN_10 = [{ "if": { "changes": { "operand": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } } }, "then": [{ "if": { "equals": { "left": { "device": { "devices": ["@device_fan"], "component": "main", "capability": "switch", "attribute": "switch", "trigger": "Never" } }, "right": { "string": "on" } }, "then": [{ "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 0 }, "end": { "integer": 1 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 0 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 2 }, "end": { "integer": 11 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 1 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 12 }, "end": { "integer": 22 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 2 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 23 }, "end": { "integer": 33 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 3 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 34 }, "end": { "integer": 44 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 4 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 45 }, "end": { "integer": 55 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 5 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 56 }, "end": { "integer": 66 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 6 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 67 }, "end": { "integer": 77 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 7 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 78 }, "end": { "integer": 88 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 8 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 89 }, "end": { "integer": 99 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 9 }] }] } }] } }, { "if": { "between": { "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } }, "start": { "integer": 100 }, "end": { "integer": 100 } }, "then": [{ "command": { "devices": ["@device_fan"], "commands": [{ "component": "main", "capability": "fanSpeed", "command": "setFanSpeed", "arguments": [{ "integer": 10 }] }] } }] } }] } }] } }];
 
         // Volume template: level 1 → vol 0, levels 2~10 → vol 1, 11~20 → vol 2 … 91~100 → vol 10 (structure, values injected at runtime)
         const TEMPLATE_VOLUME_MASTER = [{ "if": { "changes": { "operand": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } } }, "then": "@interpolated_steps" } }];
@@ -4973,8 +5024,10 @@
             const isShadeButton = selectedPreset === 'button-shade-control';
             const isCtButton = selectedPreset === 'button-ct-control';
             const isColorButton = selectedPreset === 'button-color-control';
-            const isFanFixed5 = isFanButton && selectedFanMode === 'fixed5';
-            const fanPreviewNoteKey = (isFanButton && selectedFanMode === 'slider100') ? 'step4.buttonFan.sliderStepPreviewNote' : 'step4.buttonFan.stepPreviewNote';
+            const isFanFixed = isFanButton && (selectedFanMode === 'fixed5' || selectedFanMode === 'fixed10');
+            const fanPreviewNoteKey = (isFanButton && selectedFanMode === 'slider100') 
+                ? 'step4.buttonFan.sliderStepPreviewNote' 
+                : ((isFanButton && selectedFanMode === 'fixed10') ? 'step4.buttonFan.stepPreviewNote10' : 'step4.buttonFan.stepPreviewNote');
             
             const copyMap = [
                 ['step4.stepAmountTitle', 'step4.buttonVolume.stepAmountTitle', 'step4.buttonFan.stepAmountTitle', 'step4.buttonShade.stepAmountTitle', 'step4.buttonCt.stepAmountTitle', 'step4.buttonColor.stepAmountTitle', isFanButton ? 'step4.buttonFan.stepAmountTitle' : (isVolumeButton ? 'step4.buttonVolume.stepAmountTitle' : (isShadeButton ? 'step4.buttonShade.stepAmountTitle' : (isCtButton ? 'step4.buttonCt.stepAmountTitle' : (isColorButton ? 'step4.buttonColor.stepAmountTitle' : 'step4.stepAmountTitle'))))],
@@ -4996,15 +5049,15 @@
             const stepUi = document.getElementById('button_step_ui');
             const percentUi = document.getElementById('button_percent_step_ui');
             const stepInput = document.getElementById('input_button_step');
-            if (unitSwitch) unitSwitch.classList.toggle('hidden', isFanFixed5);
-            if (stepUi) stepUi.classList.toggle('hidden', isFanFixed5 || buttonStepUnit !== 'step');
-            if (percentUi) percentUi.classList.toggle('hidden', isFanFixed5 || buttonStepUnit !== 'percent');
+            if (unitSwitch) unitSwitch.classList.toggle('hidden', isFanFixed);
+            if (stepUi) stepUi.classList.toggle('hidden', isFanFixed || buttonStepUnit !== 'step');
+            if (percentUi) percentUi.classList.toggle('hidden', isFanFixed || buttonStepUnit !== 'percent');
             if (stepInput) {
-                stepInput.disabled = isFanFixed5;
-                stepInput.classList.toggle('cursor-not-allowed', isFanFixed5);
-                if (isFanFixed5) stepInput.value = '1';
+                stepInput.disabled = isFanFixed;
+                stepInput.classList.toggle('cursor-not-allowed', isFanFixed);
+                if (isFanFixed) stepInput.value = '1';
             }
-            if (isFanFixed5) {
+            if (isFanFixed) {
                 buttonStepUnit = 'step';
                 buttonStepAmount = 1;
             }
@@ -5203,13 +5256,27 @@
             
             const cardFixed5 = document.getElementById('fanModeFixed5');
             const cardSlider100 = document.getElementById('fanModeSlider100');
+            const cardFixed10 = document.getElementById('fanModeFixed10');
             const badgeFixed5 = document.getElementById('fanModeFixed5Badge');
             const badgeSlider100 = document.getElementById('fanModeSlider100Badge');
+            const badgeFixed10 = document.getElementById('fanModeFixed10Badge');
             
             document.querySelectorAll('.fan-mode-card').forEach(el => {
                 el.classList.remove('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
                 el.classList.add('border-gray-200', 'dark:border-white/8');
             });
+
+            if (badgeFixed5) badgeFixed5.classList.add('hidden');
+            if (badgeSlider100) badgeSlider100.classList.add('hidden');
+            if (badgeFixed10) badgeFixed10.classList.add('hidden');
+
+            const titleA = cardFixed5 ? cardFixed5.querySelector('[data-i18n="step3fan.optA.title"]') : null;
+            const titleB = cardSlider100 ? cardSlider100.querySelector('[data-i18n="step3fan.optB.title"]') : null;
+            const titleC = cardFixed10 ? cardFixed10.querySelector('[data-i18n="step3fan.optC.title"]') : null;
+
+            if (titleA) titleA.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
+            if (titleB) titleB.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
+            if (titleC) titleC.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
 
             if (mode === 'fixed5') {
                 if (cardFixed5) {
@@ -5217,12 +5284,20 @@
                     cardFixed5.classList.add('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
                 }
                 if (badgeFixed5) badgeFixed5.classList.remove('hidden');
-                if (badgeSlider100) badgeSlider100.classList.add('hidden');
-                
-                const titleA = cardFixed5 ? cardFixed5.querySelector('[data-i18n="step3fan.optA.title"]') : null;
-                const titleB = cardSlider100 ? cardSlider100.querySelector('[data-i18n="step3fan.optB.title"]') : null;
                 if (titleA) titleA.className = "font-bold text-base mb-1 text-teal-800 dark:text-teal-300";
-                if (titleB) titleB.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
+                
+                if (selectedPreset === 'button-fan-control') {
+                    buttonStepAmount = 1;
+                    const stepInput = document.getElementById('input_button_step');
+                    if (stepInput) stepInput.value = '1';
+                }
+            } else if (mode === 'fixed10') {
+                if (cardFixed10) {
+                    cardFixed10.classList.remove('border-gray-200', 'dark:border-white/8');
+                    cardFixed10.classList.add('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
+                }
+                if (badgeFixed10) badgeFixed10.classList.remove('hidden');
+                if (titleC) titleC.className = "font-bold text-base mb-1 text-teal-800 dark:text-teal-300";
                 
                 if (selectedPreset === 'button-fan-control') {
                     buttonStepAmount = 1;
@@ -5234,12 +5309,7 @@
                     cardSlider100.classList.remove('border-gray-200', 'dark:border-white/8');
                     cardSlider100.classList.add('border-teal-400/60', 'dark:border-teal-500/40', 'bg-teal-50/30', 'dark:bg-teal-500/5');
                 }
-                if (badgeFixed5) badgeFixed5.classList.add('hidden');
                 if (badgeSlider100) badgeSlider100.classList.remove('hidden');
-                
-                const titleA = cardFixed5 ? cardFixed5.querySelector('[data-i18n="step3fan.optA.title"]') : null;
-                const titleB = cardSlider100 ? cardSlider100.querySelector('[data-i18n="step3fan.optB.title"]') : null;
-                if (titleA) titleA.className = "font-bold text-base mb-1 text-gray-500 dark:text-gray-400";
                 if (titleB) titleB.className = "font-bold text-base mb-1 text-teal-800 dark:text-teal-300";
                 
                 if (selectedPreset === 'button-fan-control') {
@@ -5601,6 +5671,9 @@
                 if (selectedFanMode === 'slider100') {
                     return { min: 1, max: 100 };
                 }
+                if (selectedFanMode === 'fixed10') {
+                    return { min: 0, max: 10 };
+                }
                 return { min: 0, max: 4 };
             }
             if (selectedPreset === 'button-ct-control') {
@@ -5661,9 +5734,9 @@
                 btn.classList.toggle('dark:text-zinc-400', !active);
             });
             const isFanButton = selectedPreset === 'button-fan-control';
-            const isFanFixed5 = isFanButton && selectedFanMode === 'fixed5';
-            if (stepUi) stepUi.classList.toggle('hidden', isFanFixed5 || buttonStepUnit !== 'step');
-            if (percentUi) percentUi.classList.toggle('hidden', isFanFixed5 || buttonStepUnit !== 'percent');
+            const isFanFixed = isFanButton && (selectedFanMode === 'fixed5' || selectedFanMode === 'fixed10');
+            if (stepUi) stepUi.classList.toggle('hidden', isFanFixed || buttonStepUnit !== 'step');
+            if (percentUi) percentUi.classList.toggle('hidden', isFanFixed || buttonStepUnit !== 'percent');
             if (suffix) suffix.innerText = buttonStepUnit === 'percent' ? '%' : 'step';
             if (input) input.max = String(getMaxButtonStepAmount());
             document.querySelectorAll('#button_step_ui [data-step-preset-percent]').forEach(btn => {
@@ -6328,21 +6401,23 @@
                         };
                     }
 
+                    const maxSpeed = selectedFanMode === 'fixed10' ? 10 : 4;
+
                     function buildFanUpBlocks() {
                         const thenBlocks = [];
-                        for (let speed = 0; speed < 4; speed++) {
+                        for (let speed = 0; speed < maxSpeed; speed++) {
                             thenBlocks.push(createFanBetweenBlock(speed, speed + 1));
                         }
-                        if (loop) thenBlocks.push(createFanBoundaryBlock("greaterThanOrEquals", 4, 0));
+                        if (loop) thenBlocks.push(createFanBoundaryBlock("greaterThanOrEquals", maxSpeed, 0));
                         return thenBlocks;
                     }
 
                     function buildFanDownBlocks() {
                         const thenBlocks = [];
-                        for (let speed = 4; speed > 0; speed--) {
+                        for (let speed = maxSpeed; speed > 0; speed--) {
                             thenBlocks.push(createFanBetweenBlock(speed, speed - 1, false));
                         }
-                        if (loop) thenBlocks.push(createFanBoundaryBlock("lessThanOrEquals", 0, 4));
+                        if (loop) thenBlocks.push(createFanBoundaryBlock("lessThanOrEquals", 0, maxSpeed));
                         return thenBlocks;
                     }
 
@@ -6737,7 +6812,7 @@
 
             } else if (selectedPreset === 'fan-control') {
                 const fanIds = getTargetDeviceIds('@device_fan');
-                const targetTemplate = selectedFanMode === 'slider100' ? TEMPLATE_FAN_100 : TEMPLATE_FAN;
+                const targetTemplate = selectedFanMode === 'slider100' ? TEMPLATE_FAN_100 : (selectedFanMode === 'fixed10' ? TEMPLATE_FAN_10 : TEMPLATE_FAN);
                 const rule = replacePlaceholders(cloneTemplate(targetTemplate), {
                     '@device_dimmer': dimmerId,
                     '@component_dimmer': componentId,
