@@ -2623,21 +2623,20 @@
                                 data-i18n="step3apfan.opt5.title">5단계</p>
                             <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mb-5"
                                 data-i18n="step3apfan.opt5.desc">바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 5단계 매핑방식입니다.</p>
-                            <!-- 5-notch slider graphic -->
+                            <!-- 4-notch slider graphic -->
                             <div class="pr-4 mb-5">
                                 <svg viewBox="0 0 240 36" xmlns="http://www.w3.org/2000/svg"
                                     class="w-full max-w-[260px]">
                                     <!-- Track -->
-                                    <rect x="8" y="16" width="247" height="4" rx="2" fill="currentColor"
+                                    <rect x="8" y="16" width="224" height="4" rx="2" fill="currentColor"
                                         class="text-teal-200 dark:text-teal-800" />
-                                    <!-- Filled portion (up to 4th notch, 3/4) -->
-                                    <rect x="8" y="16" width="168" height="4" rx="2" fill="currentColor"
+                                    <!-- Filled portion (up to 3rd notch) -->
+                                    <rect x="8" y="16" width="149" height="4" rx="2" fill="currentColor"
                                         class="text-teal-500" />
-                                    <!-- 5 notch dots -->
+                                    <!-- 4 notch dots -->
                                     <circle cx="8" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
-                                    <circle cx="64" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
-                                    <circle cx="120" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
-                                    <circle cx="176" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="83" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="157" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
                                     <circle cx="232" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
                                 </svg>
                             </div>
@@ -3922,8 +3921,8 @@
 
                 "step3apfan.title": "공기청정기 바람세기 범위",
                 "step3apfan.desc": "공기청정기 사양에 맞는 제어 방식을 고르세요.",
-                "step3apfan.opt5.title": "5단계",
-                "step3apfan.opt5.desc": "바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 5단계 매핑방식입니다.",
+                "step3apfan.opt5.title": "4단계",
+                "step3apfan.opt5.desc": "바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 4단계 매핑방식입니다.",
                 "step3apfan.supportedDevices": "지원 기기",
                 "step3apfan.dev1": "Bespoke 큐브 Air Infinite Line",
                 "step3apfan.dev2": "삼성 Infinite AI 공기청정기",
@@ -4332,8 +4331,8 @@
 
                 "step3apfan.title": "Air Purifier Fan Speed Control Mode",
                 "step3apfan.desc": "Select the air purifier speed control method matching your device specification.",
-                "step3apfan.opt5.title": "5-Stage Mode",
-                "step3apfan.opt5.desc": "Maps 5 distinct speed levels from wind-free to high-booster.",
+                "step3apfan.opt5.title": "4-Stage Mode",
+                "step3apfan.opt5.desc": "Maps 4 distinct speed levels from wind-free to max-booster.",
                 "step3apfan.supportedDevices": "Supported Devices",
                 "step3apfan.dev1": "Bespoke Cube Air Infinite Line",
                 "step3apfan.dev2": "Samsung Infinite AI Air Purifier",
@@ -7180,66 +7179,27 @@
                                     "if": {
                                         "between": {
                                             "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
-                                            "start": { "integer": 1 }, "end": { "integer": 1 }
+                                            "start": { "integer": 0 }, "end": { "integer": 1 }
                                         },
-                                        "then": [{
-                                            "command": {
-                                                "devices": ["@device_airpurifier"],
-                                                "commands": [
-                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "windfree" }] }
-                                                ]
-                                            }
-                                        }]
+                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "windfree" }] }] } }]
                                     }
                                 },
                                 {
                                     "if": {
                                         "between": {
                                             "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
-                                            "start": { "integer": 2 }, "end": { "integer": 34 }
+                                            "start": { "integer": 2 }, "end": { "integer": 50 }
                                         },
-                                        "then": [{
-                                            "command": {
-                                                "devices": ["@device_airpurifier"],
-                                                "commands": [
-                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "sleep" }] }
-                                                ]
-                                            }
-                                        }]
+                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "sleep" }] }] } }]
                                     }
                                 },
                                 {
                                     "if": {
                                         "between": {
                                             "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
-                                            "start": { "integer": 35 }, "end": { "integer": 67 }
+                                            "start": { "integer": 51 }, "end": { "integer": 99 }
                                         },
-                                        "then": [{
-                                            "command": {
-                                                "devices": ["@device_airpurifier"],
-                                                "commands": [
-                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] },
-                                                    { "component": "main", "capability": "samsungce.fanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] }
-                                                ]
-                                            }
-                                        }]
-                                    }
-                                },
-                                {
-                                    "if": {
-                                        "between": {
-                                            "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
-                                            "start": { "integer": 68 }, "end": { "integer": 99 }
-                                        },
-                                        "then": [{
-                                            "command": {
-                                                "devices": ["@device_airpurifier"],
-                                                "commands": [
-                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "max" }] },
-                                                    { "component": "main", "capability": "samsungce.fanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] }
-                                                ]
-                                            }
-                                        }]
+                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] }] } }]
                                     }
                                 },
                                 {
@@ -7248,15 +7208,7 @@
                                             "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
                                             "start": { "integer": 100 }, "end": { "integer": 100 }
                                         },
-                                        "then": [{
-                                            "command": {
-                                                "devices": ["@device_airpurifier"],
-                                                "commands": [
-                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "max" }] },
-                                                    { "component": "main", "capability": "samsungce.fanMode", "command": "setFanMode", "arguments": [{ "string": "high" }] }
-                                                ]
-                                            }
-                                        }]
+                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "max" }] }] } }]
                                     }
                                 }
                             ]
