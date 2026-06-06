@@ -1873,6 +1873,41 @@
                         </svg>
                     </div>
                 </div>
+
+                <!-- Preset: AP Fan Speed Control -->
+                <div onclick="selectPreset('ap-fan-control')" data-device-category="knob"
+                    class="relative preset-card glass-card p-8 md:p-10 border-2 border-transparent hover:border-teal-400/30 dark:hover:border-teal-500/20 group">
+                    <!-- Category Badge -->
+                    <div onclick="event.stopPropagation(); selectCategoryFromBadge('knob')" 
+                        class="absolute top-5 right-5 px-2.5 py-1 text-[11px] font-extrabold tracking-wide rounded-full select-none flex items-center gap-1 category-badge" 
+                        data-badge-category="knob">
+                        <svg class="left-arrow-svg hidden w-3 h-3 mr-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        <span data-i18n="category.knob">IoT 노브</span>
+                        <svg class="right-arrow-svg w-3 h-3 ml-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div
+                        class="w-14 h-14 bg-teal-50 dark:bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 tracking-tight" data-i18n="preset.apfan.title">IoT 노브로 공기청정기 바람세기 제어</h3>
+                    <p class="text-sm md:text-base text-gray-500 dark:text-zinc-400 leading-relaxed"
+                        data-i18n="preset.apfan.desc">노브를 돌려서 공기청정기의 바람세기를 조절합니다.</p>
+                    <div
+                        class="mt-6 flex items-center text-teal-500 text-sm font-black gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-8px] group-hover:translate-x-0">
+                        <span data-i18n="preset.select">선택하기</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </div>
+                </div>
             </div>
 
             <!-- Footer -->
@@ -2557,6 +2592,76 @@
                                     <circle cx="8" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
                                     <circle cx="232" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
                                 </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STEP 3-AP-FAN: AIR PURIFIER FAN SPEED MODE SELECTION ===== -->
+        <section id="step3_ap_fan" class="step-content">
+            <div class="glass-card p-8 md:p-12 space-y-8">
+                <div>
+                    <h4 class="text-lg font-bold tracking-tight mb-2" data-i18n="step3apfan.title">공기청정기 바람세기 범위</h4>
+                    <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed" data-i18n="step3apfan.desc">공기청정기 사양에 맞는 제어 방식을 고르세요.</p>
+                </div>
+
+                <!-- Option 1: 5단계 (무풍/취침/약풍/강풍/부스터) (Active by default) -->
+                <div id="apFanModeFixed5"
+                    class="relative glass-card p-7 border-2 border-teal-400/60 dark:border-teal-500/40 cursor-default bg-teal-50/30 dark:bg-teal-500/5 bg-[radial-gradient(100%_100%_at_0%_0%,rgba(20,184,166,0.05)_0%,rgba(0,0,0,0)_100%)]">
+                    <!-- Selected badge -->
+                    <div id="apFanModeFixed5Badge"
+                        class="absolute top-5 right-5 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shadow-md">
+                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-base mb-1 text-teal-800 dark:text-teal-300"
+                                data-i18n="step3apfan.opt5.title">5단계</p>
+                            <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mb-5"
+                                data-i18n="step3apfan.opt5.desc">바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 5단계 매핑방식입니다.</p>
+                            <!-- 5-notch slider graphic -->
+                            <div class="pr-4 mb-5">
+                                <svg viewBox="0 0 240 36" xmlns="http://www.w3.org/2000/svg"
+                                    class="w-full max-w-[260px]">
+                                    <!-- Track -->
+                                    <rect x="8" y="16" width="247" height="4" rx="2" fill="currentColor"
+                                        class="text-teal-200 dark:text-teal-800" />
+                                    <!-- Filled portion (up to 4th notch, 3/4) -->
+                                    <rect x="8" y="16" width="168" height="4" rx="2" fill="currentColor"
+                                        class="text-teal-500" />
+                                    <!-- 5 notch dots -->
+                                    <circle cx="8" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="64" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="120" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="176" cy="18" r="8" fill="currentColor" class="text-teal-500" stroke="white" stroke-width="2" />
+                                    <circle cx="232" cy="18" r="7" fill="white" stroke="currentColor" stroke-width="2" class="text-teal-300 dark:text-teal-700" />
+                                </svg>
+                            </div>
+
+                            <!-- Accordion: 지원 기기 (Supported Devices) -->
+                            <div class="mt-4 pt-4 border-t border-teal-200/40 dark:border-white/5 bg-transparent">
+                                <button type="button" onclick="toggleApDevicesAccordion(); event.stopPropagation();" class="w-full flex items-center justify-between font-bold text-teal-800 dark:text-teal-300 focus:outline-none text-sm">
+                                    <span data-i18n="step3apfan.supportedDevices">지원 기기</span>
+                                    <svg id="apDevicesChevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div id="apDevicesList" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                    <ul class="mt-3 space-y-1.5 text-xs text-teal-600/80 dark:text-zinc-600">
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>
+                                            <span data-i18n="step3apfan.dev1">Bespoke 큐브 Air Infinite Line</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>
+                                            <span data-i18n="step3apfan.dev2">삼성 Infinite AI 공기청정기</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3719,6 +3824,8 @@
                 "preset.ac.desc": "노브를 돌려서 에어컨 설정 온도를 조절합니다.",
                 "preset.acfan.title": "IoT 노브로 에어컨 바람세기 제어",
                 "preset.acfan.desc": "노브를 돌려서 에어컨의 바람세기를 조절합니다.",
+                "preset.apfan.title": "IoT 노브로 공기청정기 바람세기 제어",
+                "preset.apfan.desc": "노브를 돌려서 공기청정기의 바람세기를 조절합니다.",
                 "preset.buttonLight.title": "IoT 버튼으로 조명 밝기 제어",
                 "preset.buttonLight.desc": "버튼을 눌러서 조명 밝기를 제어합니다",
                 "preset.buttonVolume.title": "IoT 버튼으로 볼륨 제어",
@@ -3753,6 +3860,9 @@
                 "step2.acLabel": "컨트롤할 에어컨의 Device ID",
                 "step2.acPlaceholder": "e.g. 5e6f7g8h-9i0j-...",
                 "step2.acTip": "Advanced Web App → Devices → 에어컨의 Device ID를 복사하세요.",
+                "step2.apLabel": "컨트롤할 공기청정기의 Device ID",
+                "step2.apPlaceholder": "e.g. 5e6f7g8h-9i0j-...",
+                "step2.apTip": "Advanced Web App → Devices → 공기청정기의 Device ID를 복사하세요.",
                 "step2.caution1": "반드시 SmartThings Advanced Web App에서 복사하세요.",
                 "step2.caution3": "조명이 Switch Level 기능을 지원하는지 확인하세요.",
                 "step2.cautionFan": "선풍기가 Fan Speed(또는 fanSpeedPercent) 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
@@ -3760,6 +3870,7 @@
                 "step2.cautionBlind": "기기가 Window Shade Level 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
                 "step2.cautionAc": "에어컨이 Thermostat Cooling Setpoint 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
                 "step2.cautionAcFan": "에어컨이 Air Conditioner Fan Mode 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
+                "step2.cautionAp": "공기청정기가 airConditionerFanMode 및 samsungce.fanMode 기능을 지원하는지 확인하세요. (SmartThings 앱 → 기기 상세에서 확인 가능)",
                 "step2.cautionButtonShade": "블라인드/커튼이 windowShadeLevel 기능을 지원하는지 확인하세요.",
                 "step2.cautionCt": "조명이 colorTemperature 기능을 지원하는지 확인하세요.",
                 "step2.validationMsg": "필수 정보를 모두 입력해야 다음으로 진행할 수 있습니다.",
@@ -3808,6 +3919,15 @@
                 "step3acfan.opt2.desc": "바람세기를 1단부터 2단까지 지원합니다. 스마트싱스에서 바람세기를 약풍, 강풍으로 제어할 수 있습니다.",
 
                 "step.3acfan.title": "바람세기 제어 방식 설정",
+
+                "step3apfan.title": "공기청정기 바람세기 범위",
+                "step3apfan.desc": "공기청정기 사양에 맞는 제어 방식을 고르세요.",
+                "step3apfan.opt5.title": "5단계",
+                "step3apfan.opt5.desc": "바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 5단계 매핑방식입니다.",
+                "step3apfan.supportedDevices": "지원 기기",
+                "step3apfan.dev1": "Bespoke 큐브 Air Infinite Line",
+                "step3apfan.dev2": "삼성 Infinite AI 공기청정기",
+                "step.3apfan.title": "바람세기 제어 방식 설정",
 
                 "step3fan.title": "바람세기 범위",
                 "step3fan.desc": "선풍기 사양에 맞는 제어 방식을 선택하세요.",
@@ -4114,6 +4234,8 @@
                 "preset.ac.desc": "Turn the knob to adjust the AC cooling setpoint.",
                 "preset.acfan.title": "Control AC Fan Speed via IoT Knob",
                 "preset.acfan.desc": "Turn the knob to adjust the AC fan speed mode level.",
+                "preset.apfan.title": "Control Air Purifier Fan Speed via IoT Knob",
+                "preset.apfan.desc": "Turn the knob to adjust the air purifier fan speed.",
                 "preset.buttonLight.title": "Control Light Brightness with IoT Button",
                 "preset.buttonLight.desc": "Press the button to control light brightness",
                 "preset.buttonVolume.title": "Control Volume with IoT Button",
@@ -4148,6 +4270,9 @@
                 "step2.acLabel": "Target AC Device ID",
                 "step2.acPlaceholder": "e.g. 5e6f7g8h-9i0j-...",
                 "step2.acTip": "Advanced Web App → Devices → Copy the Device ID.",
+                "step2.apLabel": "Air Purifier Device ID",
+                "step2.apPlaceholder": "e.g. 5e6f7g8h-9i0j-...",
+                "step2.apTip": "Advanced Web App → Devices → Copy the Air Purifier's Device ID.",
                 "step2.caution1": "Always copy from SmartThings Advanced Web App.",
                 "step2.caution3": "Make sure your light supports the Switch Level capability.",
                 "step2.cautionFan": "Make sure your fan supports the Fan Speed capability. (Check in SmartThings app → Device details)",
@@ -4155,6 +4280,7 @@
                 "step2.cautionBlind": "Make sure your device supports the Window Shade Level capability. (Check in SmartThings app → Device details)",
                 "step2.cautionAc": "Make sure your AC supports the Thermostat Cooling Setpoint capability. (Check in SmartThings app → Device details)",
                 "step2.cautionAcFan": "Make sure your AC supports the Air Conditioner Fan Mode capability. (Check in SmartThings app → Device details)",
+                "step2.cautionAp": "Check if the air purifier supports airConditionerFanMode and samsungce.fanMode capabilities. (Check in SmartThings app → Device details)",
                 "step2.cautionButtonShade": "Make sure your blinds/curtains support the windowShadeLevel capability.",
                 "step2.cautionCt": "Make sure your light supports the colorTemperature capability.",
                 "step2.validationMsg": "Please fill in all required fields to continue.",
@@ -4203,6 +4329,15 @@
                 "step3acfan.opt2.desc": "Maps fan speed into 2 discrete steps: medium and high. (Outputs: \"medium\", \"high\")",
 
                 "step.3acfan.title": "AC Fan Speed Settings",
+
+                "step3apfan.title": "Air Purifier Fan Speed Control Mode",
+                "step3apfan.desc": "Select the air purifier speed control method matching your device specification.",
+                "step3apfan.opt5.title": "5-Stage Mode",
+                "step3apfan.opt5.desc": "Maps 5 distinct speed levels from wind-free to high-booster.",
+                "step3apfan.supportedDevices": "Supported Devices",
+                "step3apfan.dev1": "Bespoke Cube Air Infinite Line",
+                "step3apfan.dev2": "Samsung Infinite AI Air Purifier",
+                "step.3apfan.title": "Air Purifier Fan Speed Settings",
 
                 "step3fan.title": "Fan speed Range",
                 "step3fan.desc": "Choose the control method that matches your fan's specification.",
@@ -4507,6 +4642,7 @@
             if (preset === 'volume-control') return ['step1', 'step2', 'step3_volume', 'step4', 'step5'];
             if (preset === 'ac-control') return ['step1', 'step2', 'step3_ac', 'step4', 'step5'];
             if (preset === 'ac-fan-control') return ['step1', 'step2', 'step3_ac_fan', 'step4', 'step5'];
+            if (preset === 'ap-fan-control') return ['step1', 'step2', 'step3_ap_fan', 'step4', 'step5'];
             if (preset === 'color-control') return ['step1', 'step2', 'step3_color', 'step4', 'step5'];
             if (preset === 'blind-control') return ['step1', 'step2', 'step4', 'step5'];
             if (preset === 'button-light-control') return ['step1', 'step2_button', 'step3_button', 'step4_button', 'step4', 'step5'];
@@ -4538,6 +4674,7 @@
             if (preset === 'volume-control') return [...base2, t('step.3vol.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'ac-control') return [...base2, t('step.3ac.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'ac-fan-control') return [...base2, t('step.3acfan.title'), t('step.4.title'), t('step.5.title')];
+            if (preset === 'ap-fan-control') return [...base2, t('step.3apfan.title'), t('step.4.title'), t('step.5.title')];
             if (preset === 'color-control') return [...base2, t('step.3color.title'), t('step.4.title'), t('step.5.title')];
             return [...base2, t('step.4.title'), t('step.5.title')];
         }
@@ -4850,6 +4987,21 @@
                     c3.innerText = t(key);
                 }
 
+            } else if (selectedPreset === 'ap-fan-control') {
+                label.setAttribute('data-i18n', 'step2.apLabel');
+                label.innerText = t('step2.apLabel');
+                tip.setAttribute('data-i18n', 'step2.apTip');
+                tip.innerText = t('step2.apTip');
+                inputs.forEach(input => {
+                    input.setAttribute('data-i18n-ph', 'step2.apPlaceholder');
+                    input.placeholder = t('step2.apPlaceholder');
+                });
+                const c3 = document.getElementById('caution_line3');
+                if (c3) {
+                    c3.setAttribute('data-i18n', 'step2.cautionAp');
+                    c3.innerText = t('step2.cautionAp');
+                }
+
             } else if (selectedPreset === 'button-ac-control') {
                 const btnId = document.getElementById('input_button').value.trim() || '@device_button';
                 const compWrap = document.getElementById('component_input_wrap_button');
@@ -5122,7 +5274,9 @@
                         ? 'step2.blindPlaceholder'
                         : (selectedPreset === 'ac-control' || selectedPreset === 'ac-fan-control')
                             ? 'step2.acPlaceholder'
-                            : 'step2.lightPlaceholder';
+                            : selectedPreset === 'ap-fan-control'
+                                ? 'step2.apPlaceholder'
+                                : 'step2.lightPlaceholder';
             wrapper.innerHTML = `
         <div class="relative flex-1 min-w-0">
             <input type="text" oninput="validateField(this)"
@@ -5249,6 +5403,20 @@
             currentStep = 1;
             updateUI();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleApDevicesAccordion() {
+            const list = document.getElementById('apDevicesList');
+            const chevron = document.getElementById('apDevicesChevron');
+            if (list.classList.contains('max-h-0')) {
+                list.classList.remove('max-h-0');
+                list.classList.add('max-h-60');
+                chevron.classList.add('rotate-180');
+            } else {
+                list.classList.remove('max-h-60');
+                list.classList.add('max-h-0');
+                chevron.classList.remove('rotate-180');
+            }
         }
 
         function selectFanMode(mode) {
@@ -6988,6 +7156,118 @@
                     '@device_dimmer': dimmerId,
                     '@component_dimmer': componentId,
                     '@device_ac': acIds
+                });
+                finalJsonString = formatRuleJson(applyRelativeKnobGate(rule, dimmerId, componentId));
+
+
+            } else if (selectedPreset === 'ap-fan-control') {
+                const apIds = getTargetDeviceIds('@device_airpurifier');
+                const template = [
+                    {
+                        "if": {
+                            "changes": {
+                                "operand": {
+                                    "device": {
+                                        "devices": ["@device_dimmer"],
+                                        "component": "@component_dimmer",
+                                        "capability": "switchLevel",
+                                        "attribute": "level"
+                                    }
+                                }
+                            },
+                            "then": [
+                                {
+                                    "if": {
+                                        "between": {
+                                            "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
+                                            "start": { "integer": 1 }, "end": { "integer": 1 }
+                                        },
+                                        "then": [{
+                                            "command": {
+                                                "devices": ["@device_airpurifier"],
+                                                "commands": [
+                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "windfree" }] }
+                                                ]
+                                            }
+                                        }]
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "between": {
+                                            "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
+                                            "start": { "integer": 2 }, "end": { "integer": 34 }
+                                        },
+                                        "then": [{
+                                            "command": {
+                                                "devices": ["@device_airpurifier"],
+                                                "commands": [
+                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "sleep" }] }
+                                                ]
+                                            }
+                                        }]
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "between": {
+                                            "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
+                                            "start": { "integer": 35 }, "end": { "integer": 67 }
+                                        },
+                                        "then": [{
+                                            "command": {
+                                                "devices": ["@device_airpurifier"],
+                                                "commands": [
+                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] },
+                                                    { "component": "main", "capability": "samsungce.fanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] }
+                                                ]
+                                            }
+                                        }]
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "between": {
+                                            "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
+                                            "start": { "integer": 68 }, "end": { "integer": 99 }
+                                        },
+                                        "then": [{
+                                            "command": {
+                                                "devices": ["@device_airpurifier"],
+                                                "commands": [
+                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "max" }] },
+                                                    { "component": "main", "capability": "samsungce.fanMode", "command": "setFanMode", "arguments": [{ "string": "medium" }] }
+                                                ]
+                                            }
+                                        }]
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "between": {
+                                            "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
+                                            "start": { "integer": 100 }, "end": { "integer": 100 }
+                                        },
+                                        "then": [{
+                                            "command": {
+                                                "devices": ["@device_airpurifier"],
+                                                "commands": [
+                                                    { "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "max" }] },
+                                                    { "component": "main", "capability": "samsungce.fanMode", "command": "setFanMode", "arguments": [{ "string": "high" }] }
+                                                ]
+                                            }
+                                        }]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ];
+
+                const rule = replacePlaceholders(template, {
+                    '@device_dimmer': dimmerId,
+                    '@component_dimmer': componentId,
+                    '@device_airpurifier': apIds
                 });
                 finalJsonString = formatRuleJson(applyRelativeKnobGate(rule, dimmerId, componentId));
 
