@@ -2655,9 +2655,9 @@
                     <div class="flex items-start gap-5">
                         <div class="flex-1 min-w-0">
                             <p class="font-bold text-base mb-1 text-teal-800 dark:text-teal-300"
-                                data-i18n="step3apfan.opt5.title">5단계</p>
+                                data-i18n="step3apfan.opt5.title">4단계</p>
                             <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mb-5"
-                                data-i18n="step3apfan.opt5.desc">바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 5단계 매핑방식입니다.</p>
+                                data-i18n="step3apfan.opt5.desc">바람세기를 취침부터 강풍까지 지원하는 공기청정기의 4단계 매핑방식입니다.</p>
                             <!-- 4-notch slider graphic -->
                             <div class="pr-4 mb-5">
                                 <svg viewBox="0 0 240 36" xmlns="http://www.w3.org/2000/svg"
@@ -3143,7 +3143,7 @@
                 <div class="space-y-4 pt-2">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-black text-gray-400 uppercase tracking-widest" data-i18n="step4.buttonApFan.apStepPreviewLabel">바람세기 범위 미리보기</span>
-                        <span id="button_apfan_step_preview_text" class="text-sm font-bold text-[#2dd4bf]">4단계 (무풍 → 취침 → 약풍 → 강풍)</span>
+                        <span id="button_apfan_step_preview_text" class="text-sm font-bold text-[#2dd4bf]">4단계 (취침 → 무풍 → 약풍 → 강풍)</span>
                     </div>
                     <div id="button_apfan_step_bar" class="brightness-step-bar"></div>
                     <p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed" data-i18n="step4.buttonApFan.apStepPreviewNote">바람세기 모드에 따라 단계별로 제어됩니다.</p>
@@ -4007,7 +4007,7 @@
                 "step3apfan.title": "공기청정기 바람세기 범위",
                 "step3apfan.desc": "공기청정기 사양에 맞는 제어 방식을 고르세요.",
                 "step3apfan.opt5.title": "4단계",
-                "step3apfan.opt5.desc": "바람세기를 무풍부터 강풍까지 지원하는 공기청정기의 4단계 매핑방식입니다.",
+                "step3apfan.opt5.desc": "바람세기를 취침부터 강풍까지 지원하는 공기청정기의 4단계 매핑방식입니다.",
                 "step3apfan.supportedDevices": "지원 기기",
                 "step3apfan.dev1": "Bespoke 큐브 Air Infinite Line",
                 "step3apfan.dev2": "삼성 Infinite AI 공기청정기",
@@ -4433,7 +4433,7 @@
                 "step3apfan.title": "Air Purifier Fan Speed Control Mode",
                 "step3apfan.desc": "Select the air purifier speed control method matching your device specification.",
                 "step3apfan.opt5.title": "4-Stage Mode",
-                "step3apfan.opt5.desc": "Maps 4 distinct speed levels from wind-free to max-booster.",
+                "step3apfan.opt5.desc": "Maps 4 distinct speed levels from sleep to max-booster.",
                 "step3apfan.supportedDevices": "Supported Devices",
                 "step3apfan.dev1": "Bespoke Cube Air Infinite Line",
                 "step3apfan.dev2": "Samsung Infinite AI Air Purifier",
@@ -6209,9 +6209,9 @@
             }
             bar.innerHTML = positions.map(pos => `<span class="brightness-step-marker" style="left:${pos}%"></span>`).join('');
             if (currentLang === 'ko') {
-                text.innerText = '4단계 (무풍 → 취침 → 약풍 → 강풍)';
+                text.innerText = '4단계 (취침 → 무풍 → 약풍 → 강풍)';
             } else {
-                text.innerText = '4-stage (Windfree → Sleep → Medium → Max)';
+                text.innerText = '4-stage (Sleep → Windfree → Medium → Max)';
             }
         }
 
@@ -7348,7 +7348,7 @@
                                             "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
                                             "start": { "integer": 0 }, "end": { "integer": 1 }
                                         },
-                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "windfree" }] }] } }]
+                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "sleep" }] }] } }]
                                     }
                                 },
                                 {
@@ -7357,7 +7357,7 @@
                                             "value": { "device": { "devices": ["@device_dimmer"], "component": "@component_dimmer", "capability": "switchLevel", "attribute": "level" } },
                                             "start": { "integer": 2 }, "end": { "integer": 50 }
                                         },
-                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "sleep" }] }] } }]
+                                        "then": [{ "command": { "devices": ["@device_airpurifier"], "commands": [{ "component": "main", "capability": "airConditionerFanMode", "command": "setFanMode", "arguments": [{ "string": "windfree" }] }] } }]
                                     }
                                 },
                                 {
@@ -7571,7 +7571,7 @@
                 const targetApIds = getButtonTargetDeviceIds('@device_airpurifier');
                 const loop = buttonApFanLoopMode;
 
-                const stages = ["windfree", "sleep", "medium", "max"];
+                const stages = ["sleep", "windfree", "medium", "max"];
 
                 function apFanOperand() {
                     return { "device": { "devices": targetApIds, "component": "main", "capability": "airConditionerFanMode", "attribute": "fanMode", "trigger": "Never" } };
